@@ -12,8 +12,12 @@ module.exports = {
         'dark-blue': '#6482AD',
         'light-blue': '#7FA1C3',
         'white-coffee': '#E2DAD6',
-        'light-pink': '#F5EDED'
-      }
+        'light-pink': '#F5EDED',
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
+      },
     },
   },
   plugins: [],
