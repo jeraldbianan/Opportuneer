@@ -1,4 +1,4 @@
-# Opportuneer (opportuneer)
+# Opportuneer (frontend)
 
 A job listing web application
 
