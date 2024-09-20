@@ -7,7 +7,14 @@ module.exports = {
     './node_modules/quasar/src/**/*.sass',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dark-blue': '#6482AD',
+        'light-blue': '#7FA1C3',
+        'white-coffee': '#E2DAD6',
+        'light-pink': '#F5EDED'
+      }
+    },
   },
   plugins: [],
 };
