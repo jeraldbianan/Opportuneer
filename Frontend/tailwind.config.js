@@ -8,6 +8,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        tablet: { max: '1024px' },
+        'mobile-lg': { max: '768px' },
+        'mobile-md': { max: '640px' },
+        'mobile-sm': { max: '480px' },
+      },
       colors: {
         'dark-blue': '#6482AD',
         'light-blue': '#7FA1C3',
