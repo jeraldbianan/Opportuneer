@@ -24,6 +24,9 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         'open-sans': ['Open Sans', 'sans-serif'],
       },
+      maxWidth: {
+        container: '1160px',
+      },
     },
   },
   plugins: [],
