@@ -1,15 +1,11 @@
 <template>
-  <div class="text-6xl text-red-600">
-    <p>
-      Hello World
-    </p>
+  <div>
+    <HeroSection />
   </div>
 </template>
 
 <script setup lang="ts">
-
+import HeroSection from 'src/components/HomePage/HeroSection.vue';
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

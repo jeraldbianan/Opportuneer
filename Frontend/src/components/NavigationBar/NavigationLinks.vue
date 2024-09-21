@@ -3,7 +3,7 @@
     <div v-for="link in links" :key="link.name">
       <router-link
         :to="link.url"
-        class="font-open-sans text-xs font-semibold text-black"
+        class="font-open-sans text-sm font-semibold text-black"
         >{{ link.name }}</router-link
       >
     </div>
