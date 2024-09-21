@@ -7,8 +7,19 @@
     >
       <q-img
         :src="heroImage"
-        class="h-auto max-h-full w-full max-w-[622px] object-contain"
-      />
+        class="relative h-auto max-h-full w-full max-w-[622px] object-contain"
+      >
+        <div
+          class="absolute left-[58px] top-[132px] flex h-[133px] w-[130px] flex-col items-center justify-center rounded-lg bg-white"
+        >
+          <p class="font-open-sans text-3xl font-extrabold text-dark-blue">
+            {{ jobsList.length }}
+          </p>
+          <p class="mt-2 font-open-sans text-base font-semibold text-black">
+            Job Offers
+          </p>
+        </div>
+      </q-img>
       <div class="flex w-full max-w-[466px] flex-col">
         <h1 class="font-montserrat text-4xl font-semibold !leading-[130%]">
           Your <span class="font-black text-dark-blue">Dream Job</span> is Just
@@ -47,11 +58,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+
 import heroImage from '/images/hero image.png';
+
+import { Job } from 'src/types/listings';
+import { getListings } from 'src/services/apiService';
 
 const keyword = ref('');
 const location = ref('');
+
+const jobsList = ref<Job[]>([]);
+
+onMounted(() => {
+  fetchListings();
+});
+
+const fetchListings = async () => {
+  try {
+    const response = await getListings();
+    jobsList.value = response;
+  } catch (err) {
+    console.log(err);
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
