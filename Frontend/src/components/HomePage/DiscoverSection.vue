@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center">
     <div
-      class="my-[90px] flex w-full max-w-[1160px] flex-nowrap items-center justify-between gap-[73px]"
+      class="max-w-container my-[90px] flex w-full flex-nowrap items-center justify-between gap-[73px]"
     >
       <div class="flex w-full max-w-[466px] flex-col">
         <h1 class="font-montserrat text-4xl font-semibold !leading-[130%]">
