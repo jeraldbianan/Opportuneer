@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex h-full min-h-[900px] w-full justify-center bg-[url('images/Curve.jpg')] bg-cover bg-fixed bg-center"
+    class="flex h-full min-h-[900px] w-full justify-center bg-[url('images/Curve.jpg')] bg-cover bg-center"
   >
     <div
       class="my-[90px] flex w-full max-w-[1160px] flex-nowrap items-center justify-between gap-[73px]"
     >
       <q-img
-        src="images/hero image.png"
+        :src="heroImage"
         class="h-auto max-h-full w-full max-w-[622px] object-contain"
       />
       <div class="flex w-full max-w-[466px] flex-col">
@@ -48,6 +48,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import heroImage from '/images/hero image.png';
 
 const keyword = ref('');
 const location = ref('');
