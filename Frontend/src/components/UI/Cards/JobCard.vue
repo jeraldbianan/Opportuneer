@@ -18,18 +18,19 @@
       </div>
     </div>
     <q-separator class="my-6 h-[1px] w-full text-light-blue" />
-    <p class="line-clamp-4 font-open-sans text-base !leading-[140%]">
+    <p class="font-open-sans text-xl font-semibold">{{ job.title }}</p>
+    <p class="mt-4 line-clamp-4 font-open-sans text-base !leading-[140%]">
       {{ job.description }}
     </p>
-    <div class="mt-8 flex justify-between">
+    <div class="mt-8 flex items-center justify-between">
       <div class="flex flex-col gap-2 font-open-sans text-xs">
         <p>{{ job.type }}</p>
-        <p>{{ `${job.salary} - ${job.secondary_salary}` }}</p>
+        <p>{{ `₱${job.salary} - ₱${job.secondary_salary}` }}</p>
       </div>
       <q-btn
         unelevated
         label="Details"
-        class="h-7 w-[94px] bg-dark-blue/70 font-open-sans text-[8px] font-semibold normal-case text-white"
+        class="h-7 w-[94px] bg-dark-blue/70 font-open-sans text-[10px] font-semibold normal-case text-white"
       />
     </div>
   </div>
