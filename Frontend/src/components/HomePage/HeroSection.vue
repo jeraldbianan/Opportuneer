@@ -13,10 +13,10 @@
           class="absolute left-[58px] top-[132px] flex h-[133px] w-[130px] flex-col items-center justify-center rounded-lg bg-white"
         >
           <p class="font-open-sans text-3xl font-extrabold text-dark-blue">
-            {{ jobsList.length }}
+            {{ listings.length }}
           </p>
           <p class="mt-2 font-open-sans text-base font-semibold text-black">
-            Job Offers
+            Job Offer{{ listings.length > 1 ? 's' : '' }}
           </p>
         </div>
       </q-img>
@@ -59,29 +59,21 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
 import heroImage from '/images/hero image.png';
 
-import { Job } from 'src/types/listings';
-import { getListings } from 'src/services/apiService';
+import { useListingStore } from 'src/stores/listing-store';
+
+const listingStore = useListingStore();
+const { listings } = storeToRefs(listingStore);
 
 const keyword = ref('');
 const location = ref('');
 
-const jobsList = ref<Job[]>([]);
-
 onMounted(() => {
-  fetchListings();
+  listingStore.getListings();
 });
-
-const fetchListings = async () => {
-  try {
-    const response = await getListings();
-    jobsList.value = response;
-  } catch (err) {
-    console.log(err);
-  }
-};
 </script>
 
 <style lang="scss" scoped></style>

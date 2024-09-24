@@ -2,7 +2,7 @@
   <section class="my-[90px] flex flex-col items-center">
     <h3 class="font-montserrat text-3xl font-bold">Latest Jobs</h3>
     <div class="mt-10 grid w-full max-w-container grid-cols-3">
-      <div v-for="job in jobsList" :key="job.id">
+      <div v-for="job in listings" :key="job.id">
         <JobCard :job="job" />
       </div>
     </div>
@@ -10,26 +10,18 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 
-import { getListings } from 'src/services/apiService';
-import { Job } from 'src/types/listings';
 import JobCard from '../UI/Cards/JobCard.vue';
+import { useListingStore } from 'src/stores/listing-store';
+import { storeToRefs } from 'pinia';
 
-const jobsList = ref<Job[]>([]);
+const listingStore = useListingStore();
+const { listings } = storeToRefs(listingStore);
 
 onMounted(() => {
-  fetchListings();
+  listingStore.getListings();
 });
-
-const fetchListings = async () => {
-  try {
-    const response = await getListings();
-    jobsList.value = response;
-  } catch (err) {
-    console.log(err);
-  }
-};
 </script>
 
 <style scoped></style>
