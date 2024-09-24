@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center">
+  <section class="flex justify-center">
     <div
-      class="max-w-container my-[90px] flex w-full flex-nowrap items-center justify-between gap-[73px]"
+      class="my-[90px] flex w-full max-w-container flex-nowrap items-center justify-between gap-[73px]"
     >
       <div class="flex w-full max-w-[466px] flex-col">
         <h1 class="font-montserrat text-4xl font-semibold !leading-[130%]">
@@ -26,7 +26,7 @@
         class="h-auto max-h-full w-full max-w-[622px] object-contain"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

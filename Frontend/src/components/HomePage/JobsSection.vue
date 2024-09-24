@@ -1,12 +1,12 @@
 <template>
-  <div class="my-[90px] flex flex-col items-center">
+  <section class="my-[90px] flex flex-col items-center">
     <h3 class="font-montserrat text-3xl font-bold">Latest Jobs</h3>
-    <div class="max-w-container mt-10 grid w-full grid-cols-3">
+    <div class="mt-10 grid w-full max-w-container grid-cols-3">
       <div v-for="job in jobsList" :key="job.id">
         <JobCard :job="job" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
