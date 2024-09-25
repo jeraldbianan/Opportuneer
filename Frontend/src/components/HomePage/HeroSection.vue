@@ -1,7 +1,6 @@
 <template>
   <section
-    class="flex h-full min-h-[900px] w-full justify-center bg-cover bg-center"
-    :class="`bg-[url('${curve}')]`"
+    class="flex h-full min-h-[900px] w-full justify-center bg-[url('public/images/curve.jpg')] bg-cover bg-center"
   >
     <div
       class="my-[90px] flex w-full max-w-container flex-nowrap items-center justify-between gap-[73px]"
@@ -63,7 +62,6 @@ import { onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 
 import heroImage from '/images/hero image.png';
-import curve from '/images/curve.jpg';
 
 import { useListingStore } from 'src/stores/listing-store';
 
