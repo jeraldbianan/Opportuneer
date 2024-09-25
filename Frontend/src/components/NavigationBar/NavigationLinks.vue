@@ -25,15 +25,15 @@ const links = ref([
   },
   {
     name: 'Jobs List',
-    url: '/listings',
+    url: '#',
   },
   {
     name: 'About us',
-    url: '/about',
+    url: '#',
   },
   {
     name: 'Contact',
-    url: '/contact',
+    url: '#',
   },
 ]);
 </script>
