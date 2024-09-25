@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex h-full min-h-[900px] w-full justify-center bg-[url('public/images/curve.jpg')] bg-cover bg-center"
+    class="flex h-full min-h-[900px] w-full justify-center bg-[url('images/curve.jpg')] bg-cover bg-center"
   >
     <div
       class="my-[90px] flex w-full max-w-container flex-nowrap items-center justify-between gap-[73px]"
