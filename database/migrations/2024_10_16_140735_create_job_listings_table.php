@@ -16,9 +16,13 @@ return new class extends Migration {
             $table->string('title');
             $table->text('description');
             $table->unsignedInteger('salary');
+            $table->string('company');
+            $table->string('logo')->nullable();
             $table->string('location');
             $table->string('category');
             $table->enum('experience', JobListing::$experience);
+            $table->enum('type', JobListing::$type);
+            $table->string('tags');
 
             $table->timestamps();
         });

@@ -11,6 +11,6 @@ class JobListingSeeder extends Seeder {
      * Run the database seeds.
      */
     public function run(): void {
-        JobListing::factory(100)->create();
+        JobListing::factory(20)->create();
     }
 }
