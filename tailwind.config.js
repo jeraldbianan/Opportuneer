@@ -21,6 +21,7 @@ export default {
                 "light-blue": "#7FA1C3",
                 "white-coffee": "#E2DAD6",
                 "light-pink": "#F5EDED",
+                "main-gray": "#F7F7F7",
                 danger: "#D15151",
                 success: "#25CC72",
             },
