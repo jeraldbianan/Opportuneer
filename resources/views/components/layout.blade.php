@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    {{ $slot }}
+    <div class="max-w-container w-full mx-auto">
+        {{ $slot }}
+    </div>
 </body>
 
 </html>
