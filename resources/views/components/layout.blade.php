@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Opportuneer</title>
     @vite('resources/css/app.css')
 
 </head>
 
 <body>
-    <div class="text-4xl">BIG TEXT</div>
+    {{ $slot }}
 </body>
 
 </html>
