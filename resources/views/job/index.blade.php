@@ -9,61 +9,98 @@
     ]" class="mb-4 mt-10" />
 
     <div class="flex flex-col gap-6">
-        <x-card class="w-full h-[300px] p-5">
-
-            <form>
-                @csrf
-
-                <div class="mb-4 grid grid-cols-2 gap-4">
+        <x-card class="w-full p-5">
+            <form action="{{ route('job-listings.index') }}" method="GET">
+                <div class="grid grid-cols-2 gap-4">
                     <div class="flex col-span-1">
                         <div
-                            class="flex items-center gap-2 max-w-[600px] w-full border border-r-0 border-white-coffee p-3 pl-3 rounded-s-lg">
+                            class="flex items-center gap-2 max-w-[600px] w-full border border-r-0 border-white-coffee px-3 py-2 rounded-s-lg">
                             <x-icons.search class="top-5 left-3 w-6 h-6" />
-                            <x-text-input placeholder="Search job title or keyword" name="keyword" value="" />
+                            <x-text-input placeholder="Search job title or keyword" name="keyword"
+                                value="{{ request('keyword') }}" />
                         </div>
 
                         <div
-                            class="flex justify-between gap-4 max-w-full w-full border border-white-coffee py-3 px-3 rounded-r-lg">
+                            class="flex justify-between gap-4 max-w-full w-full border border-white-coffee px-3 py-2 rounded-r-lg">
                             <div class="flex gap-2 items-center w-full">
                                 <x-icons.location-icon class="top-5 left-3 w-6 h-6" />
-                                <x-text-input placeholder="Country or State" name="location" value="" />
+                                <x-text-input placeholder="Location" name="location"
+                                    value="{{ request('location') }}" />
                             </div>
                         </div>
                     </div>
 
                     <div class="flex col-span-1">
                         <div
-                            class="flex items-center gap-2 max-w-[600px] w-full border border-r-0 border-white-coffee p-3 pl-3 rounded-s-lg">
+                            class="flex items-center gap-2 max-w-[600px] w-full border border-r-0 border-white-coffee px-3 py-2 rounded-s-lg">
                             <x-icons.money class="top-5 left-3 w-6 h-6" />
-                            <x-text-input placeholder="Minimum Salary" name="min_salary" value="" />
+                            <x-text-input placeholder="Minimum Salary" name="min_salary"
+                                value="{{ request('min_salary') }}" />
                         </div>
 
                         <div
-                            class="flex justify-between gap-4 max-w-full w-full border border-white-coffee py-3 px-3 rounded-r-lg">
+                            class="flex justify-between gap-4 max-w-full w-full border border-white-coffee px-3 py-2 rounded-r-lg">
                             <div class="flex gap-2 items-center w-full">
                                 <x-icons.money class="top-5 left-3 w-6 h-6" />
-                                <x-text-input placeholder="Maximum Salary" name="max_salary" value="" />
+                                <x-text-input placeholder="Maximum Salary" name="max_salary"
+                                    value="{{ request('max_salary') }}" />
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit"
-                        class="py-2 w-32 bg-dark-blue/70 rounded text-white text-xs hover:bg-dark-blue transition-all">Find
-                        Jobs</button>
+                    <div>
+                        <div class="mb-2 font-semibold font-open-sans text-sm">Experience</div>
+                        <div class="flex gap-4">
+                            <label for="experience" class="mb-1 flex items-center text-xs">
+                                <input type="radio" name="experience" value="" class="text-dark-blue"
+                                    @checked(!request('')) />
+                                <span class="ml-1">All</span>
+                            </label>
+
+                            <label for="experience" class="mb-1 flex items-center text-xs">
+                                <input type="radio" name="experience" value="entry" class="text-dark-blue"
+                                    @checked('entry' === request('experience')) />
+                                <span class="ml-1">Entry</span>
+                            </label>
+
+                            <label for="experience" class="mb-1 flex items-center text-xs">
+                                <input type="radio" name="experience" value="intermediate" class="text-dark-blue"
+                                    @checked('intermediate' === request('experience')) />
+                                <span class="ml-1">Intermediate</span>
+                            </label>
+
+                            <label for="experience" class="mb-1 flex items-center text-xs">
+                                <input type="radio" name="experience" value="senior" class="text-dark-blue"
+                                    @checked('senior' === request('experience')) />
+                                <span class="ml-1">Senior</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-span-2 flex justify-end">
+                        <button type="submit"
+                            class="py-2 w-32 bg-dark-blue/70 rounded text-white text-xs hover:bg-dark-blue transition-all">Find
+                            Jobs</button>
+                    </div>
                 </div>
             </form>
-
         </x-card>
 
-        @foreach ($jobs as $job)
-            <x-card class="p-4 hover:shadow-lg">
-                <x-job-card :$job>
-                    <x-link-button :href="route('job-listings.show', $job)">
-                        Show Details
-                    </x-link-button>
-                </x-job-card>
-            </x-card>
-        @endforeach
+        @if ($jobs->count())
+            @foreach ($jobs as $job)
+                <x-card class="p-4 hover:shadow-lg">
+                    <x-job-card :$job>
+                        <x-link-button :href="route('job-listings.show', $job)">
+                            Show Details
+                        </x-link-button>
+                    </x-job-card>
+                </x-card>
+            @endforeach
+        @else
+            <div class="flex justify-center mt-10">
+                <p class="font-open-sans text-lg text-dark-blue">No jobs found</p>
+            </div>
+        @endif
     </div>
 
 </x-layout>
