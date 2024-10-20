@@ -2,7 +2,20 @@
 
 **Personal Project**
 
-A Job listing web application
+A Job listing web application created using PHP and LaravelFeatures
+
+-   -   CRUD
+-   -   Database Interaction with Eloquent ORM and Relationships
+-   -   Form validation
+-   -   Session Handling
+-   -   Caching and Rate Limiting
+-   -   Authentication
+-   -   Notifications and email sending
+-   -   Advanced Filtering and Search functionality
+-   -   File Uploads and management
+-   -   Soft Deletes
+-   -   Middleware for access control
+-   -   TailwindCSS integration and Alpine.JS
 
 ⚠️⚠️**Under Development**⚠️⚠️
 
