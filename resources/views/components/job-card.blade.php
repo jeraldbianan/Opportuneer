@@ -1,4 +1,4 @@
-<x-card-horizontal class="p-4">
+<div>
     <div class="flex justify-between gap-6">
         <div class="flex flex-col">
             <div class="flex gap-3 max-w-[600px] w-full">
@@ -18,8 +18,16 @@
             </div>
 
             <div class="max-w-[690px] w-full">
-                <p class="mt-5 font-open-sans font-semibold text-sm line-clamp-2">{{ $job->description }}
-                </p>
+                @if (Route::currentRouteName() === 'job-listings.show')
+                    <p class="mt-5 font-open-sans font-semibold text-sm">
+                        {!! nl2br(e($job->description)) !!}
+                    </p>
+                @else
+                    <p class="mt-5 font-open-sans font-semibold text-sm line-clamp-2">
+                        {{ $job->description }}
+                    </p>
+                @endif
+
             </div>
 
             <div class="flex gap-2 flex-wrap max-w-[690px] w-full mt-5">
@@ -43,4 +51,4 @@
             {{ $slot }}
         </div>
     </div>
-</x-card-horizontal>
+</div>
