@@ -11,7 +11,9 @@ class JobListingController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        return view('job.index', ['jobs' => JobListing::all()]);
+        $jobs = JobListing::latest()->paginate(10);
+
+        return view('job.index', ['jobs' => $jobs]);
     }
 
     /**

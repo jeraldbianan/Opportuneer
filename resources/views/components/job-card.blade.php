@@ -42,10 +42,10 @@
         <div class="flex flex-col items-end justify-between flex-none">
             <div>
                 <div class="flex justify-end">
-                    <x-location-icon></x-location-icon>
+                    <x-icons.location-icon class="h-[18px] w-[18px]" />
                     <div class="font-open-sans font-semibold text-sm">{{ $job->location }}</div>
                 </div>
-                <div class="font-open-sans text-light-blue text-[10px] font-semibold mt-2">Posted
+                <div class="font-open-sans text-light-blue text-[10px] font-semibold mt-2 text-end">Posted
                     {{ $job->created_at->diffForHumans() }}</div>
             </div>
             {{ $slot }}
