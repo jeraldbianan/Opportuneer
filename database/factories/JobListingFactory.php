@@ -28,7 +28,7 @@ class JobListingFactory extends Factory {
 
         return [
             'title' => fake()->jobTitle(),
-            'description' => fake()->paragraph(3, true),
+            'description' => fake()->paragraphs(3, true),
             'salary' => fake()->numberBetween(5_000, 150_000),
             'company' => fake()->company(),
             'logo' => 'https://picsum.photos/seed/picsum/200/300',
