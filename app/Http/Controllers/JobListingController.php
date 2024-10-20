@@ -32,7 +32,7 @@ class JobListingController extends Controller {
      * Display the specified resource.
      */
     public function show(JobListing $jobListing) {
-        //
+        return view('job.show', ['job' => $jobListing]);
     }
 
     /**
