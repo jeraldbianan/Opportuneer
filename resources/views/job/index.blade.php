@@ -41,10 +41,13 @@
                         <x-radio-group name="category" :options="\App\Models\JobListing::$category"></x-radio-group>
                     </div>
 
-                    <div class="col-span-2 flex justify-end">
-                        <button type="submit"
-                            class="py-2 w-32 bg-dark-blue/70 rounded text-white text-xs hover:bg-dark-blue transition-all">Find
-                            Jobs</button>
+                    <div>
+                        <div class="mb-2 font-semibold font-open-sans text-sm">Job Type</div>
+                        <x-radio-group name="type" :options="\App\Models\JobListing::$type"></x-radio-group>
+                    </div>
+
+                    <div class="flex justify-end items-center">
+                        <x-button type="submit">Find Jobs</x-button>
                     </div>
                 </div>
             </form>
