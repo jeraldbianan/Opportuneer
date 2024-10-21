@@ -11,7 +11,13 @@
                         <p class="font-open-sans text-light-blue font-semibold text-base">
                             {{ $job->company }}</p>
                         <span>-</span>
-                        <div class="font-open-sans text-sm">₱{{ number_format($job->salary) }}
+                        <div class="font-open-sans text-sm">₱{{ number_format($job->salary) }}</div>
+                        <span>-</span>
+                        <div
+                            class="font-open-sans text-sm text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">
+                            <a href="{{ route('job-listings.index', ['category' => $job->category]) }}">
+                                {{ $job->category }}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -31,10 +37,19 @@
             </div>
 
             <div class="flex gap-2 flex-wrap max-w-[690px] w-full mt-5">
-                <x-tag class="bg-dark-blue">{{ $job->type }}</x-tag>
-                <x-tag class="bg-dark-blue">{{ $job->experience }}</x-tag>
+                <x-tag class="bg-dark-blue">
+                    <a href="{{ route('job-listings.index', ['type' => $job->type]) }}">{{ $job->type }}</a>
+                </x-tag>
+                <x-tag class="bg-dark-blue">
+                    <a
+                        href="{{ route('job-listings.index', ['experience' => $job->experience]) }}">{{ $job->experience }}</a>
+                </x-tag>
                 @foreach (explode(',', $job->tags) as $tag)
-                    <x-tag class="bg-light-blue">{{ $tag }}</x-tag>
+                    <x-tag class="bg-light-blue">
+                        <a href="{{ route('job-listings.index', ['tag' => $tag]) }}">
+                            {{ $tag }}
+                        </a>
+                    </x-tag>
                 @endforeach
             </div>
         </div>

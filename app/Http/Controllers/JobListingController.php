@@ -28,6 +28,10 @@ class JobListingController extends Controller {
             $query->where('experience', request('experience'));
         })->when(request('category'), function ($query) {
             $query->where('category', request('category'));
+        })->when(request('type'), function ($query) {
+            $query->where('type', request('type'));
+        })->when(request('tag'), function ($query) {
+            $query->where('tags', 'like', '%' . request('tag') . '%');
         });
 
         return view('job.index', ['jobs' => $jobs->get()]);
