@@ -1,4 +1,4 @@
-<div class="flex gap-4">
+<div class="flex gap-4 flex-wrap">
     <label for="{{ $name }}" class="mb-1 flex items-center text-xs">
         <input type="radio" name="{{ $name }}" value="" class="text-dark-blue cursor-pointer"
             @checked(!request($name)) />
