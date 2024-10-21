@@ -22,7 +22,9 @@ class JobListingController extends Controller {
             'tag'
         );
 
-        return view('job.index', ['jobs' => JobListing::filter($filters)->latest()->paginate(10)]);
+        $jobs = JobListing::filter($filters)->latest()->paginate(10);
+
+        return view('job.index', ['jobs' => $jobs]);
     }
 
     /**
@@ -43,7 +45,7 @@ class JobListingController extends Controller {
      * Display the specified resource.
      */
     public function show(JobListing $jobListing) {
-        return view('job.show', ['job' => $jobListing]);
+        return view('job.show', ['job' => $jobListing->load('employer.jobListings')]);
     }
 
     /**

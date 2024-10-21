@@ -4,17 +4,16 @@
             <div class="flex gap-3 max-w-[600px] w-full">
                 <img src="{{ $job->employer->logo }}" alt="bird" class="w-[52px] h-[52px] rounded-2xl">
                 <div>
-                    <h3 class="line-clamp-1 font-open-sans font-semibold text-xl">
+                    <h3 class="line-clamp-1 font-semibold text-xl">
                         {{ Str::ucfirst($job->title) }}
                     </h3>
                     <div class="flex gap-2 items-center">
-                        <p class="font-open-sans text-light-blue font-semibold text-base">
+                        <p class="text-light-blue font-semibold text-base">
                             {{ $job->employer->company_name }}</p>
                         <span>-</span>
-                        <div class="font-open-sans text-sm">₱{{ number_format($job->salary) }}</div>
+                        <div class="text-sm">₱{{ number_format($job->salary) }}</div>
                         <span>-</span>
-                        <div
-                            class="font-open-sans text-sm text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">
+                        <div class="text-sm text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">
                             <a href="{{ route('job-listings.index', ['category' => $job->category]) }}">
                                 {{ $job->category }}
                             </a>
@@ -25,11 +24,11 @@
 
             <div class="max-w-[690px] w-full">
                 @if (Route::currentRouteName() === 'job-listings.show')
-                    <p class="mt-5 font-open-sans font-semibold text-sm">
+                    <p class="mt-5 font-semibold text-sm">
                         {!! nl2br(e($job->description)) !!}
                     </p>
                 @else
-                    <p class="mt-5 font-open-sans font-semibold text-sm line-clamp-2">
+                    <p class="mt-5 font-semibold text-sm line-clamp-2">
                         {{ $job->description }}
                     </p>
                 @endif
@@ -58,9 +57,9 @@
             <div>
                 <div class="flex justify-end">
                     <x-icons.location class="h-[18px] w-[18px]" />
-                    <div class="font-open-sans font-semibold text-sm">{{ $job->location }}</div>
+                    <div class="font-semibold text-sm">{{ $job->location }}</div>
                 </div>
-                <div class="font-open-sans text-light-blue text-[10px] font-semibold mt-2 text-end">Posted
+                <div class="text-light-blue text-[10px] font-semibold mt-2 text-end">Posted
                     {{ $job->created_at->diffForHumans() }}</div>
             </div>
             {{ $slot }}

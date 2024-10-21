@@ -11,7 +11,7 @@
 
     <input x-ref="input-{{ $name }}" type="text" placeholder="{{ $placeholder }}" name="{{ $name }}"
         id="{{ $name }}" value="{{ $value }}"
-        {{ $attributes->class(['outline-none border-none font-open-sans text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent']) }} />
+        {{ $attributes->class(['outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent']) }} />
 
     @if ($formRef)
         <button

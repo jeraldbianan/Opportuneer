@@ -1,6 +1,6 @@
 <x-job-listing-banner>
     <h2 class="font-montserrat font-semibold text-5xl text-white">Find your dream job</h2>
-    <p class="font-open-sans font-normal text-base text-white">Looking for jobs? Browse the jobs list now</p>
+    <p class="font-normal text-base text-white">Looking for jobs? Browse the jobs list now</p>
 </x-job-listing-banner>
 
 <x-layout>
@@ -29,7 +29,7 @@
                     </div>
 
                     <div>
-                        <div class="mb-2 font-semibold font-open-sans text-sm">Experience</div>
+                        <div class="mb-2 font-semibold text-sm">Experience</div>
                         <x-radio-group name="experience" :options="array_combine(
                             array_map('ucfirst', \App\Models\JobListing::$experience),
                             \App\Models\JobListing::$experience,
@@ -37,12 +37,12 @@
                     </div>
 
                     <div>
-                        <div class="mb-2 font-semibold font-open-sans text-sm">Categories</div>
+                        <div class="mb-2 font-semibold text-sm">Categories</div>
                         <x-radio-group name="category" :options="\App\Models\JobListing::$category"></x-radio-group>
                     </div>
 
                     <div>
-                        <div class="mb-2 font-semibold font-open-sans text-sm">Job Type</div>
+                        <div class="mb-2 font-semibold text-sm">Job Type</div>
                         <x-radio-group name="type" :options="\App\Models\JobListing::$type"></x-radio-group>
                     </div>
 
@@ -65,7 +65,7 @@
             @endforeach
         @else
             <div class="flex justify-center mt-10">
-                <p class="font-open-sans text-lg text-dark-blue">No jobs found</p>
+                <p class="text-lg text-dark-blue">No jobs found</p>
             </div>
         @endif
     </div>
