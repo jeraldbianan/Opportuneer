@@ -50,31 +50,12 @@
 
                     <div>
                         <div class="mb-2 font-semibold font-open-sans text-sm">Experience</div>
-                        <div class="flex gap-4">
-                            <label for="experience" class="mb-1 flex items-center text-xs">
-                                <input type="radio" name="experience" value="" class="text-dark-blue"
-                                    @checked(!request('')) />
-                                <span class="ml-1">All</span>
-                            </label>
+                        <x-radio-group name="experience" :options="\App\Models\JobListing::$experience"></x-radio-group>
+                    </div>
 
-                            <label for="experience" class="mb-1 flex items-center text-xs">
-                                <input type="radio" name="experience" value="entry" class="text-dark-blue"
-                                    @checked('entry' === request('experience')) />
-                                <span class="ml-1">Entry</span>
-                            </label>
-
-                            <label for="experience" class="mb-1 flex items-center text-xs">
-                                <input type="radio" name="experience" value="intermediate" class="text-dark-blue"
-                                    @checked('intermediate' === request('experience')) />
-                                <span class="ml-1">Intermediate</span>
-                            </label>
-
-                            <label for="experience" class="mb-1 flex items-center text-xs">
-                                <input type="radio" name="experience" value="senior" class="text-dark-blue"
-                                    @checked('senior' === request('experience')) />
-                                <span class="ml-1">Senior</span>
-                            </label>
-                        </div>
+                    <div>
+                        <div class="mb-2 font-semibold font-open-sans text-sm">Categories</div>
+                        <x-radio-group name="category" :options="\App\Models\JobListing::$category"></x-radio-group>
                     </div>
 
                     <div class="col-span-2 flex justify-end">
