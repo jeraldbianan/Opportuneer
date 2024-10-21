@@ -2,14 +2,14 @@
     <div class="flex justify-between gap-6">
         <div class="flex flex-col">
             <div class="flex gap-3 max-w-[600px] w-full">
-                <img src="{{ $job->logo }}" alt="bird" class="w-[52px] h-[52px] rounded-2xl">
+                <img src="{{ $job->employer->logo }}" alt="bird" class="w-[52px] h-[52px] rounded-2xl">
                 <div>
                     <h3 class="line-clamp-1 font-open-sans font-semibold text-xl">
                         {{ Str::ucfirst($job->title) }}
                     </h3>
                     <div class="flex gap-2 items-center">
                         <p class="font-open-sans text-light-blue font-semibold text-base">
-                            {{ $job->company }}</p>
+                            {{ $job->employer->company_name }}</p>
                         <span>-</span>
                         <div class="font-open-sans text-sm">₱{{ number_format($job->salary) }}</div>
                         <span>-</span>
