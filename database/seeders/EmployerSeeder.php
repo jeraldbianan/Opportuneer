@@ -4,19 +4,20 @@ namespace Database\Seeders;
 
 use App\Models\Employer;
 use App\Models\JobListing;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class JobListingSeeder extends Seeder {
+class EmployerSeeder extends Seeder {
     /**
      * Run the database seeds.
      */
     public function run(): void {
-        $employers = Employer::all();
+        $users = User::all()->shuffle();
 
-        for ($i = 0; $i < 100; $i++) {
-            JobListing::factory()->create([
-                'employer_id' => $employers->random()
+        for ($i = 0; $i < 20; $i++) {
+            Employer::factory()->create([
+                'user_id' => $users->pop()->id
             ]);
         }
     }
