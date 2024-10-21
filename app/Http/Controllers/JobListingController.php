@@ -11,30 +11,18 @@ class JobListingController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        $jobs = JobListing::query();
+        $filters = request()->only(
+            'keyword',
+            'location',
+            'min_salary',
+            'max_salary',
+            'experience',
+            'category',
+            'type',
+            'tag'
+        );
 
-        $jobs->when(request('keyword'), function ($query) {
-            $query->where(function ($query) {
-                $query->where('title', 'like', '%' . request('keyword') . '%')
-                    ->orWhere('description', 'like', '%' . request('keyword') . '%');
-            });
-        })->when(request('location'), function ($query) {
-            $query->where('location', 'like', '%' . request('location') . '%');
-        })->when(request('min_salary'), function ($query) {
-            $query->where('salary', '>=', request('min_salary'));
-        })->when(request('max_salary'), function ($query) {
-            $query->where('salary', '<=', request('max_salary'));
-        })->when(request('experience'), function ($query) {
-            $query->where('experience', request('experience'));
-        })->when(request('category'), function ($query) {
-            $query->where('category', request('category'));
-        })->when(request('type'), function ($query) {
-            $query->where('type', request('type'));
-        })->when(request('tag'), function ($query) {
-            $query->where('tags', 'like', '%' . request('tag') . '%');
-        });
-
-        return view('job.index', ['jobs' => $jobs->get()]);
+        return view('job.index', ['jobs' => JobListing::filter($filters)->latest()->paginate(10)]);
     }
 
     /**

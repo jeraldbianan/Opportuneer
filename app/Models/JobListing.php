@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 
 class JobListing extends Model {
     use HasFactory;
@@ -51,4 +53,27 @@ class JobListing extends Model {
         'Brand Manager',
         'Marketing Coordinator'
     ];
+
+    public function scopeFilter(Builder | QueryBuilder $query, array $filters): Builder|QueryBuilder {
+        return $query->when($filters['keyword'] ?? null, function ($query, $keyword) {
+            $query->where(function ($query) use ($keyword) {
+                $query->where('title', 'like', '%' . $keyword . '%')
+                    ->orWhere('description', 'like', '%' . $keyword . '%');
+            });
+        })->when($filters['location'] ?? null, function ($query, $location) {
+            $query->where('location', 'like', '%' . $location . '%');
+        })->when($filters['min_salary'] ?? null, function ($query, $minSalary) {
+            $query->where('salary', '>=', $minSalary);
+        })->when($filters['max_salary'] ?? null, function ($query, $maxSalary) {
+            $query->where('salary', '<=', $maxSalary);
+        })->when($filters['experience'] ?? null, function ($query, $experiece) {
+            $query->where('experience', $experiece);
+        })->when($filters['category'] ?? null, function ($query, $category) {
+            $query->where('category', $category);
+        })->when($filters['type'] ?? null, function ($query, $type) {
+            $query->where('type', $type);
+        })->when($filters['tag'] ?? null, function ($query, $tag) {
+            $query->where('tags', 'like', '%' . $tag . '%');
+        });
+    }
 }
