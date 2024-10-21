@@ -59,7 +59,10 @@ class JobListing extends Model {
         return $query->when($filters['keyword'] ?? null, function ($query, $keyword) {
             $query->where(function ($query) use ($keyword) {
                 $query->where('title', 'like', '%' . $keyword . '%')
-                    ->orWhere('description', 'like', '%' . $keyword . '%');
+                    ->orWhere('description', 'like', '%' . $keyword . '%')
+                    ->orWhereHas('employer', function ($query) use ($keyword) {
+                        $query->where('company_name', 'like', '%' . $keyword . '%');
+                    });
             });
         })->when($filters['location'] ?? null, function ($query, $location) {
             $query->where('location', 'like', '%' . $location . '%');
