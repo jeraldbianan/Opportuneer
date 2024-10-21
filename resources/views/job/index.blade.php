@@ -8,24 +8,24 @@
         'Jobs' => route('job-listings.index'),
     ]" class="mb-4 mt-10" />
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-6" x-data="">
         <x-card class="w-full p-5">
-            <form id="filtering-form" action="{{ route('job-listings.index') }}" method="GET">
+            <form x-ref="filters" action="{{ route('job-listings.index') }}" method="GET">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="flex col-span-1 gap-1">
                         <x-text-input icon="search" placeholder="Search job title or keyword" name="keyword"
-                            value="{{ request('keyword') }}" form-id="filtering-form" />
+                            value="{{ request('keyword') }}" form-ref="filters" />
 
                         <x-text-input icon="location" placeholder="Location" name="location"
-                            value="{{ request('location') }}" form-id="filtering-form" />
+                            value="{{ request('location') }}" form-ref="filters" />
                     </div>
 
                     <div class="flex col-span-1 gap-1">
                         <x-text-input icon="money" placeholder="Minimum Salary" name="min_salary"
-                            value="{{ request('min_salary') }}" form-id="filtering-form" />
+                            value="{{ request('min_salary') }}" form-ref="filters" />
 
                         <x-text-input icon="money" placeholder="Maximum Salary" name="max_salary"
-                            value="{{ request('max_salary') }}" form-id="filtering-form" />
+                            value="{{ request('max_salary') }}" form-ref="filters" />
                     </div>
 
                     <div>
