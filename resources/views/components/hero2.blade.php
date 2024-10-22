@@ -1,4 +1,4 @@
-<section class="container flex justify-center items-center gap-[72px] my-[90px]">
+<section class="container flex justify-center items-center gap-[72px] py-[90px]">
     <div class="flex flex-col w-full max-w-[466px]">
         <h1 class="font-montserrat text-4xl font-semibold !leading-[130%]">
             <span class="font-black text-dark-blue">Empowering</span> Your Career

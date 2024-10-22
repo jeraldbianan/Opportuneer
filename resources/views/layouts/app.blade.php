@@ -22,7 +22,7 @@
         @yield('content')
     </main>
 
-    <footer class="container mx-auto">
+    <footer class="flex justify-center border-t border-t-light-pink">
         <x-footer />
     </footer>
 </body>

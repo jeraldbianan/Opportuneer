@@ -5,7 +5,7 @@
             <p class="font-open-sans text-xs font-bold text-light-blue">
                 {{ $job->location }}
             </p>
-            <p class="font-open-sans text-xl font-bold">{{ $job->employer->company_name }}</p>
+            <p class="font-open-sans text-base font-bold line-clamp-1">{{ $job->employer->company_name }}</p>
         </div>
     </section>
 

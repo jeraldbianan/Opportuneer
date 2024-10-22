@@ -73,7 +73,7 @@
             </div>
         @endif
     </div>
-    <div class="my-5">
+    <div class="mt-10 mb-[90px]">
         {{ $jobs->links('components.pagination') }}
     </div>
 @endsection

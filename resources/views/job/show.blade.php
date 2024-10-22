@@ -17,7 +17,7 @@
         <x-job-card :$job />
     </x-card>
 
-    <x-card class="mb-4 mt-10 p-4">
+    <x-card class="mb-[90px] mt-10 p-4">
         <h2 class="mb-4 text-lg font-medium font-montserrat">
             More Jobs at <span class="font-bold">{{ $job->employer->company_name }}</span>
         </h2>

@@ -43,7 +43,7 @@
 @section('content')
     <x-hero2 />
 
-    <section class="my-[90px] flex flex-col items-center">
+    <section class="flex flex-col items-center py-[90px]">
         <h3 class="font-montserrat text-3xl font-bold">Latest Jobs</h3>
         <div class="mt-10 grid w-full max-w-container grid-cols-3 gap-[30px]">
             @foreach ($jobs->take(6) as $job)
