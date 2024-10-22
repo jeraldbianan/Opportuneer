@@ -1,5 +1,5 @@
 <div
-    class="relative group flex items-center gap-2 max-w-[600px] w-full border border-white-coffee px-3 py-2 rounded focus-within:border-dark-blue">
+    {{ $attributes->class(['relative group flex items-center gap-2 max-w-[600px] w-full border border-white-coffee px-3 py-2 rounded focus-within:border-dark-blue']) }}>
 
     @if ($icon === 'search')
         <x-icons.search class="w-6 h-6" />
@@ -7,11 +7,15 @@
         <x-icons.location class="w-6 h-6" />
     @elseif ($icon === 'money')
         <x-icons.money class="w-6 h-6" />
+    @elseif ($icon === 'user')
+        <x-icons.user class="w-6 h-6" />
+    @elseif ($icon === 'key')
+        <x-icons.key class="w-6 h-6" />
     @endif
 
-    <input x-ref="input-{{ $name }}" type="text" placeholder="{{ $placeholder }}" name="{{ $name }}"
-        id="{{ $name }}" value="{{ $value }}"
-        {{ $attributes->class(['outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent']) }} />
+    <input x-ref="input-{{ $name }}" type="{{ $type }}" placeholder="{{ $placeholder }}"
+        name="{{ $name }}" id="{{ $name }}" value="{{ $value }}"
+        class="outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent" />
 
 
     @if ($formRef === 'filters')
