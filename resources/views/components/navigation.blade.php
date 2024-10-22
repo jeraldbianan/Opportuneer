@@ -16,7 +16,7 @@
                 </li>
             </ul>
 
-            <a href="">
+            <a href="{{ route('auth.create') }}">
                 <x-button type="button" class="h-10 w-28 font-medium text-sm text-white">
                     Login
                 </x-button>
