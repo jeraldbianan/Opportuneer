@@ -11,20 +11,22 @@
 </head>
 
 <body>
-    <nav class="sticky top-0 z-50 bg-white flex justify-center">
-        <x-navigation />
-    </nav>
+    <div class="flex flex-col min-h-screen">
+        <nav class="sticky top-0 z-50 bg-white flex justify-center">
+            <x-navigation />
+        </nav>
 
-    @yield('hero')
-    @yield('masthead')
+        @yield('hero')
+        @yield('masthead')
 
-    <main class="container mx-auto">
-        @yield('content')
-    </main>
+        <main class="container mx-auto flex-grow">
+            @yield('content')
+        </main>
 
-    <footer class="flex justify-center border-t border-t-light-pink">
-        <x-footer />
-    </footer>
+        <footer class="flex justify-center border-t border-t-light-pink">
+            <x-footer />
+        </footer>
+    </div>
 </body>
 
 </html>

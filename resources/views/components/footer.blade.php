@@ -1,4 +1,4 @@
-<div class="container p-10">
+<div class="container py-10 bg-white">
     <div class="flex justify-between gap-10">
         <div>
             <x-icons.logo></x-icons.logo>
