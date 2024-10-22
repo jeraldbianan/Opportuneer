@@ -1,9 +1,13 @@
-<x-job-listing-banner>
-    <h2 class="font-montserrat font-semibold text-5xl text-white">Find your dream job</h2>
-    <p class="font-normal text-base text-white">Looking for jobs? Browse the jobs list now</p>
-</x-job-listing-banner>
+@extends('layouts.app')
 
-<x-layout>
+@section('masthead')
+    <x-job-listing-banner>
+        <h2 class="font-montserrat font-semibold text-5xl text-white">Find your dream job</h2>
+        <p class="font-normal text-base text-white">Looking for jobs? Browse the jobs list now</p>
+    </x-job-listing-banner>
+@endsection
+
+@section('content')
     <x-breadcrumbs :links="[
         'Jobs' => route('job-listings.index'),
     ]" class="mb-4 mt-10" />
@@ -72,5 +76,4 @@
     <div class="my-5">
         {{ $jobs->links('components.pagination') }}
     </div>
-
-</x-layout>
+@endsection

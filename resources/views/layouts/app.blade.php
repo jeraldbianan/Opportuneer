@@ -11,9 +11,15 @@
 </head>
 
 <body>
-    <div class="max-w-container w-full mx-auto">
-        {{ $slot }}
-    </div>
+    <x-navigation />
+
+    @yield('masthead')
+
+    <main class="container mx-auto py-8">
+        @yield('content')
+    </main>
+
+    <x-footer />
 </body>
 
 </html>

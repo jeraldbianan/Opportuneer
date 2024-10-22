@@ -1,10 +1,14 @@
-<x-job-listing-banner>
-    <h2 class="font-montserrat font-semibold text-5xl text-white">Discover the Opportunity Waiting for You</h2>
-    <p class="font-normal text-base text-white">Learn more about this role and see how it aligns with your
-        skills and career goals. Your next big step starts here.</p>
-</x-job-listing-banner>
+@extends('layouts.app')
 
-<x-layout>
+@section('masthead')
+    <x-job-listing-banner>
+        <h2 class="font-montserrat font-semibold text-5xl text-white">Discover the Opportunity Waiting for You</h2>
+        <p class="font-normal text-base text-white">Learn more about this role and see how it aligns with your
+            skills and career goals. Your next big step starts here.</p>
+    </x-job-listing-banner>
+@endsection
+
+@section('content')
     <x-breadcrumbs :links="[
         'Jobs' => route('job-listings.index'),
         $job->title => '#',
@@ -35,4 +39,4 @@
             {{ $jobListings->links('components.pagination') }}
         </div>
     </x-card>
-</x-layout>
+@endsection
