@@ -16,7 +16,7 @@
                 </li>
             </ul>
 
-            @if (auth()->user())
+            @auth
                 <x-avatar />
             @else
                 <a href="{{ route('auth.create') }}">
@@ -24,7 +24,7 @@
                         Login
                     </x-button>
                 </a>
-            @endif
+            @endauth
         </div>
     </div>
 </div>

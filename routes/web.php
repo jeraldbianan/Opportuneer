@@ -11,3 +11,6 @@ Route::resource('job-listings', JobListingController::class)->only('index', 'sho
 
 Route::get('login', fn() => to_route('auth.create'))->name('login');
 Route::resource('auth', AuthController::class)->only('create', 'store');
+
+Route::delete('auth', [AuthController::class, 'destroy'])->name('auth.destroy');
+Route::get('logout', fn() => to_route('auth.destroy'))->name('logout');
