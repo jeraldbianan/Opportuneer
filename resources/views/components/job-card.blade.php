@@ -1,8 +1,9 @@
 <div>
     <div class="flex justify-between gap-6">
         <div class="flex flex-col">
-            <div class="flex gap-3 max-w-[600px] w-full">
-                <img src="{{ $job->employer->logo }}" alt="bird" class="w-[52px] h-[52px] rounded-2xl">
+            <div class="flex gap-3 w-full items-start">
+                <img src="{{ $job->employer->logo }}" alt="employer logo"
+                    class="max-w-[52px] max-h-[52px] w-full h-full rounded-2xl object-cover">
                 <div>
                     <h3 class="line-clamp-1 font-semibold text-xl">
                         {{ Str::ucfirst($job->title) }}
@@ -22,13 +23,13 @@
                 </div>
             </div>
 
-            <div class="max-w-[690px] w-full">
+            <div class="max-w-full">
                 @if (Route::currentRouteName() === 'job-listings.show')
                     <p class="mt-5 font-semibold text-sm">
                         {!! nl2br(e($job->description)) !!}
                     </p>
                 @else
-                    <p class="mt-5 font-semibold text-sm line-clamp-2">
+                    <p class="mt-5 font-semibold text-sm line-clamp-3">
                         {{ $job->description }}
                     </p>
                 @endif
