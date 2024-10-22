@@ -22,7 +22,13 @@ class JobListingController extends Controller {
             'tag'
         );
 
-        $jobs = JobListing::filter($filters)->latest()->paginate(10);
+        $hasFilters = array_filter($filters);
+
+        if ($hasFilters && !request()->has('page')) {
+            return redirect()->route('job-listings.index', array_merge($filters, ['page' => 1]));
+        }
+
+        $jobs = JobListing::filter($filters)->latest()->paginate(10)->withQueryString();
 
         return view('job.index', ['jobs' => $jobs]);
     }
@@ -45,7 +51,13 @@ class JobListingController extends Controller {
      * Display the specified resource.
      */
     public function show(JobListing $jobListing) {
-        return view('job.show', ['job' => $jobListing->load('employer.jobListings')]);
+        // Paginate the job listings for the employer
+        $jobListings = $jobListing->employer->jobListings()->paginate(10);
+
+        return view('job.show', [
+            'job' => $jobListing,
+            'jobListings' => $jobListings // Passing paginated job listings
+        ]);
     }
 
     /**

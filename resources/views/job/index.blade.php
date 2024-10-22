@@ -69,5 +69,8 @@
             </div>
         @endif
     </div>
+    <div class="my-5">
+        {{ $jobs->links('components.pagination') }}
+    </div>
 
 </x-layout>

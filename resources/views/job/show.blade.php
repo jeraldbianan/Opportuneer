@@ -18,20 +18,21 @@
             More Jobs at <span class="font-bold">{{ $job->employer->company_name }}</span>
         </h2>
         <div class="text-sm">
-            @foreach ($job->employer->jobListings as $otherJob)
-                <div class="mb-4 flex justify-between">
+            @foreach ($jobListings as $otherJob)
+                <div class="mb-4 flex justify-between items-center">
                     <div>
-                        <div
-                            class="text-sm font-semibold text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">
-                            <a href="{{ route('job-listings.show', $otherJob) }}">{{ $otherJob->title }}</a>
+                        <div>
+                            <a href="{{ route('job-listings.show', $otherJob) }}"
+                                class="text-sm font-semibold text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">{{ $otherJob->title }}</a>
                         </div>
-                        <div class="text-sm">
+                        <div class="text-xs mt-2">
                             {{ $otherJob->created_at->diffForHumans() }}
                         </div>
                     </div>
                     <div class="text-sm">₱{{ number_format($otherJob->salary) }}</div>
                 </div>
             @endforeach
+            {{ $jobListings->links('components.pagination') }}
         </div>
     </x-card>
 </x-layout>
