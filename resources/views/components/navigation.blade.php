@@ -16,12 +16,15 @@
                 </li>
             </ul>
 
-            <a href="{{ route('auth.create') }}">
-                <x-button type="button" class="h-10 w-28 font-medium text-sm text-white">
-                    Login
-                </x-button>
-            </a>
-
+            @if (auth()->user())
+                <x-avatar />
+            @else
+                <a href="{{ route('auth.create') }}">
+                    <x-button type="button" class="h-10 w-28 font-medium text-sm text-white">
+                        Login
+                    </x-button>
+                </a>
+            @endif
         </div>
     </div>
 </div>
