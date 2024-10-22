@@ -11,15 +11,20 @@
 </head>
 
 <body>
-    <x-navigation />
+    <nav class="sticky top-0 z-50 bg-white flex justify-center">
+        <x-navigation />
+    </nav>
 
+    @yield('hero')
     @yield('masthead')
 
-    <main class="container mx-auto py-8">
+    <main class="container mx-auto">
         @yield('content')
     </main>
 
-    <x-footer />
+    <footer class="container mx-auto">
+        <x-footer />
+    </footer>
 </body>
 
 </html>

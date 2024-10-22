@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="flex justify-end items-center">
-                        <x-button type="submit">Find Jobs</x-button>
+                        <x-button type="submit" class="h-10 w-28 text-xs text-white">Find Jobs</x-button>
                     </div>
                 </div>
             </form>

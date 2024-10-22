@@ -13,11 +13,20 @@
         id="{{ $name }}" value="{{ $value }}"
         {{ $attributes->class(['outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent']) }} />
 
-    @if ($formRef)
+
+    @if ($formRef === 'filters')
         <button
             @click="$refs['input-{{ $name }}'].value = '';
                     $refs['{{ $formRef }}'].submit();"
             type="button" class="absolute top-0 right-0 flex h-full items-center p-2">
+            <x-icons.close
+                class="w-6 h-6 text-light-blue hover:scale-105 hover:bg-white-coffee rounded-full p-1 active:text-white transition-all" />
+        </button>
+    @endif
+
+    @if ($formRef === 'home-filters')
+        <button @click.prevent="$refs['input-{{ $name }}'].value = ''" type="button"
+            class="absolute top-0 right-0 flex h-full items-center p-2">
             <x-icons.close
                 class="w-6 h-6 text-light-blue hover:scale-105 hover:bg-white-coffee rounded-full p-1 active:text-white transition-all" />
         </button>
