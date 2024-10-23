@@ -10,7 +10,7 @@
             @csrf
 
             @if (session('error'))
-                <div role="alert" class="mt-8 mb-2 text-red-600 opacity-75">
+                <div role="alert" class="text-xs mt-8 mb-2 text-red-600 opacity-75">
                     {{ session('error') }}
                 </div>
             @endif

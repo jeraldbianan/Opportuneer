@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobListingApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,51 +11,23 @@ class MyJobListingApplicationController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-
         return view('my_job_application.index', [
-            'applications' => Auth::user()->jobListingApplications()->with('jobListing', 'jobListing.employer')->latest()->get(),
+            'applications' => Auth::user()->jobListingApplications()
+                ->with([
+                    'jobListing' => fn($query) => $query->withCount('jobListingApplications')
+                        ->withAvg('jobListingApplications', 'expected_salary'),
+                    'jobListing.employer'
+                ])
+                ->latest()->paginate(5),
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create() {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id) {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id) {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id) {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id) {
-        //
+    public function destroy(JobListingApplication $myJobListingsApplication) {
+        $myJobListingsApplication->delete();
+
+        return redirect()->back()->with('success', 'Job Application Cancelled.');
     }
 }
