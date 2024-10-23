@@ -21,8 +21,13 @@
             action="{{ route('job-listings.application.store', $job) }}" method="POST">
             @csrf
 
-            <x-text-input icon="money" type="number" placeholder="Expected Salary" name="expected_salary"
-                value="{{ old('expected_salary') }}" form-ref="job-application-filters" />
+            <x-text-input icon="money" placeholder="Email" name="expected_salary" value="{{ old('expected_salary') }}"
+                form-ref="login-filters"
+                class="h-12 mb-1 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
+                form-ref="job-application-filters" />
+            @error('expected_salary')
+                <div class="text-red-600 text-xs">{{ $message }}</div>
+            @enderror
 
             <x-button type="submit" class="mt-10 w-20">Apply</x-button>
         </form>

@@ -20,6 +20,14 @@
         @yield('masthead')
 
         <main class="container mx-auto flex-grow">
+            @if (session('success'))
+                <div role="alert"
+                    class="my-8 rounded-md border-l-4 border-success bg-green-200 p-4 text-green-700 opacity-75">
+                    <p class="font-semibold text-sm">Success!</p>
+                    <p class="font-medium text-xs">{{ session('success') }}</p>
+                </div>
+            @endif
+
             @yield('content')
         </main>
 

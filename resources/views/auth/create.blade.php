@@ -9,17 +9,23 @@
         <form x-data="" x-ref="login-filters" action="{{ route('auth.store') }}" method="POST" class="mt-10">
             @csrf
 
+            @if (session('error'))
+                <div role="alert" class="mt-8 mb-2 text-red-600 opacity-75">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="flex flex-col">
                 <x-text-input icon="user" placeholder="Email" name="email" value="{{ old('email') }}"
                     form-ref="login-filters"
-                    class="h-12 mb-1 {{ $errors->has('email') ? 'border-red-600' : 'border-white-coffee' }}" />
+                    class="h-12 mb-1 {{ $errors->has('email') ? '!border-red-600' : '!border-white-coffee' }}" />
                 @error('email')
                     <div class="text-red-600 text-xs">{{ $message }}</div>
                 @enderror
 
                 <x-text-input icon="key" placeholder="Password" type="password" name="password" value=""
                     form-ref="login-filters"
-                    class="h-12 mt-3 mb-1 {{ $errors->has('password') ? 'border-red-600' : 'border-white-coffee' }}" />
+                    class="h-12 mt-3 mb-1 {{ $errors->has('password') ? '!border-red-600' : '!border-white-coffee' }}" />
                 @error('password')
                     <div class="text-red-600 text-xs">{{ $message }}</div>
                 @enderror
