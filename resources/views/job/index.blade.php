@@ -61,9 +61,9 @@
             @foreach ($jobs as $job)
                 <x-card class="hover:shadow-lg">
                     <x-job-card :$job>
-                        <x-link-button :href="route('job-listings.show', $job)">
-                            Show Details
-                        </x-link-button>
+                        <a href="{{ route('job-listings.show', $job) }}">
+                            <x-button type="button">Show Details</x-button>
+                        </a>
                     </x-job-card>
                 </x-card>
             @endforeach
