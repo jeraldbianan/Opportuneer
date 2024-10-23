@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('masthead')
-    <x-job-listing-banner>
-        <h2 class="font-montserrat font-semibold text-5xl text-white">Discover the Opportunity Waiting for You</h2>
-        <p class="font-normal text-base text-white">Learn more about this role and see how it aligns with your
-            skills and career goals. Your next big step starts here.</p>
-    </x-job-listing-banner>
+    <x-masthead-banner>
+        <h2 class="font-montserrat font-semibold text-4xl text-white">Explore Your Next Opportunity</h2>
+        <p class="font-normal text-base text-white">Learn how this role fits your career goals and skill set. Your next move
+            begins here.</p>
+    </x-masthead-banner>
 @endsection
 
 @section('content')

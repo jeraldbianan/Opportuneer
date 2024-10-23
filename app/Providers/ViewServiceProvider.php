@@ -18,6 +18,6 @@ class ViewServiceProvider extends ServiceProvider {
      * Bootstrap services.
      */
     public function boot(): void {
-        View::composer('components.job-listing-banner', MastHeadComposer::class);
+        View::composer('components.masthead-banner', MastHeadComposer::class);
     }
 }

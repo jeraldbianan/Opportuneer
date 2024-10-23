@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('masthead')
-    <x-job-listing-banner>
+    <x-masthead-banner>
         <h2 class="font-montserrat font-semibold text-5xl text-white">Find your dream job</h2>
         <p class="font-normal text-base text-white">Looking for jobs? Browse the jobs list now</p>
-    </x-job-listing-banner>
+    </x-masthead-banner>
 @endsection
 
 @section('content')

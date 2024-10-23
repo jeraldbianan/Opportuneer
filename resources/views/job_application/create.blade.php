@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('masthead')
+    <x-masthead-banner>
+        <h2 class="font-montserrat font-semibold text-4xl text-white">Step Into Your Next Career</h2>
+        <p class="font-normal text-base text-white">Apply now and unlock the potential of this opportunity. Your journey to
+            success starts here.</p>
+    </x-masthead-banner>
+@endsection
+
 @section('content')
     <x-breadcrumbs :links="[
         'Jobs' => route('job-listings.index'),
@@ -12,7 +20,7 @@
         <x-job-card :$job />
     </x-card>
 
-    <x-card>
+    <x-card class="mb-[90px]">
         <h2 class="mb-4 text-lg font-medium">
             You Job Application
         </h2>
