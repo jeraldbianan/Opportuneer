@@ -14,8 +14,9 @@
         class="absolute left-[20%] z-10 bg-white divide-y divide-gray-200 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
         <ul class="pt-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
             <li>
-                <a href="#"
-                    class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                <a href="{{ route('my-job-listings-application.index') }}"
+                    class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My
+                    Applications</a>
             </li>
         </ul>
         <form action="{{ route('auth.destroy') }}" method="POST">

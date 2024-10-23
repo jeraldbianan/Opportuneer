@@ -11,7 +11,7 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create('job_applications', function (Blueprint $table) {
+        Schema::create('job_listing_applications', function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(User::class);
@@ -26,6 +26,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists('job_applications');
+        Schema::dropIfExists('job_listing_applications');
     }
 };

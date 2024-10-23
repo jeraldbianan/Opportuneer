@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder {
             UserSeeder::class,
             EmployerSeeder::class,
             JobListingSeeder::class,
-            JobApplicationSeeder::class
+            JobListingApplicationSeeder::class
         ]);
     }
 }

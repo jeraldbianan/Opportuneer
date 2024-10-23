@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class JobApplication extends Model {
-    /** @use HasFactory<\Database\Factories\JobApplicationFactory> */
+class JobListingApplication extends Model {
     use HasFactory;
 
     protected $fillable = ['expected_salary', 'user_id', 'job_listing_id'];

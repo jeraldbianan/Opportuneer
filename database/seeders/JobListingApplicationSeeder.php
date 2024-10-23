@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\JobApplication;
 use App\Models\JobListing;
+use App\Models\JobListingApplication;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class JobApplicationSeeder extends Seeder {
+class JobListingApplicationSeeder extends Seeder {
     /**
      * Run the database seeds.
      */
@@ -19,7 +19,7 @@ class JobApplicationSeeder extends Seeder {
             $jobs = JobListing::inRandomOrder()->take(rand(0, 4))->get();
 
             foreach ($jobs as $job) {
-                JobApplication::factory()->create([
+                JobListingApplication::factory()->create([
                     'job_listing_id' => $job->id,
                     'user_id' => $user->id
                 ]);

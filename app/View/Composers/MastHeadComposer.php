@@ -20,6 +20,9 @@ class MastHeadComposer {
             case 'job-listings.application.create':
                 $mastHeadPhoto = asset('images/application-bg.jpg');
                 break;
+            case 'my-job-listings-application.index':
+                $mastHeadPhoto = asset('images/my-application-bg.jpg');
+                break;
         }
 
         $view->with('mastHeadPhoto', $mastHeadPhoto);

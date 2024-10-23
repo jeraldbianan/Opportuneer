@@ -86,7 +86,7 @@ class JobListing extends Model {
     public function hasUserApplied(Authenticatable|User|int $user): bool {
         return $this->where('id', $this->id)
             ->whereHas(
-                'jobApplications',
+                'jobListingApplications',
                 fn($query) => $query->where('user_id', '=', $user->id ?? $user)
             )->exists();
     }
@@ -99,7 +99,7 @@ class JobListing extends Model {
         return $this->belongsTo(User::class);
     }
 
-    public function jobApplications(): HasMany {
-        return $this->hasMany(JobApplication::class);
+    public function jobListingApplications(): HasMany {
+        return $this->hasMany(JobListingApplication::class);
     }
 }

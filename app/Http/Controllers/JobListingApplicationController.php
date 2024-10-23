@@ -22,7 +22,7 @@ class JobListingApplicationController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(JobListing $jobListing, Request $request) {
-        $jobListing->jobApplications()->create([
+        $jobListing->jobListingApplications()->create([
             'user_id' => $request->user()->id,
             ...$request->validate([
                 'expected_salary' => 'required|min:1|max:1000000'
