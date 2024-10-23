@@ -11,23 +11,20 @@
 
     <!-- Dropdown menu -->
     <div x-show="open" @click.outside="open = false"
-        class="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+        class="absolute left-[20%] z-10 bg-white divide-y divide-gray-200 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+        <ul class="pt-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
             <li>
                 <a href="#"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
             </li>
         </ul>
-        <div
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-            <form action="{{ route('auth.destroy') }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="">
-                    Sign out
-                </button>
-            </form>
-
-        </div>
+        <form action="{{ route('auth.destroy') }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit"
+                class="w-full text-sm px-4 py-3 text-start rounded-b-lg text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                Sign out
+            </button>
+        </form>
     </div>
 </div>
