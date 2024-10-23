@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -80,6 +81,14 @@ class JobListing extends Model {
         })->when($filters['tag'] ?? null, function ($query, $tag) {
             $query->where('tags', 'like', '%' . $tag . '%');
         });
+    }
+
+    public function hasUserApplied(Authenticatable|User|int $user): bool {
+        return $this->where('id', $this->id)
+            ->whereHas(
+                'jobApplications',
+                fn($query) => $query->where('user_id', '=', $user->id ?? $user)
+            )->exists();
     }
 
     public function employer(): BelongsTo {
