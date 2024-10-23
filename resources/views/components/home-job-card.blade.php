@@ -1,4 +1,4 @@
-<x-card class="p-[30px] w-[367px] transition-all hover:scale-105">
+<x-card class="w-[367px] transition-all hover:scale-105">
     <section class="flex items-center gap-3">
         <img src="{{ $job->employer->logo }}" alt="{{ $job->employer->company_name }}" class="w-20 h-20 rounded-2xl">
         <div class="flex flex-col">

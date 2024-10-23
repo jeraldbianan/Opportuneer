@@ -28,7 +28,7 @@
         </button>
     @endif
 
-    @if ($formRef === 'home-filters' || $formRef === 'login-filters')
+    @if ($formRef === 'home-filters' || $formRef === 'login-filters' || $formRef === 'job-application-filters')
         <button @click.prevent="$refs['input-{{ $name }}'].value = ''" type="button"
             class="absolute top-0 right-0 flex h-full items-center p-2">
             <x-icons.close

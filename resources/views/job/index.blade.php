@@ -13,7 +13,7 @@
     ]" class="mb-4 mt-10" />
 
     <div class="flex flex-col gap-6" x-data="">
-        <x-card class="w-full p-5">
+        <x-card class="w-full">
             <form x-ref="filters" action="{{ route('job-listings.index') }}" method="GET">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="flex col-span-1 gap-1">
@@ -59,7 +59,7 @@
 
         @if ($jobs->count())
             @foreach ($jobs as $job)
-                <x-card class="p-4 hover:shadow-lg">
+                <x-card class="hover:shadow-lg">
                     <x-job-card :$job>
                         <x-link-button :href="route('job-listings.show', $job)">
                             Show Details
