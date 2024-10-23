@@ -14,7 +14,11 @@
         $job->title => '#',
     ]" class="mb-4 mt-10" />
     <x-card>
-        <x-job-card :$job />
+        <x-job-card :$job>
+            <a href="{{ route('job-listings.application.create', $job) }}">
+                <x-button type="button" class="w-20">Apply</x-button>
+            </a>
+        </x-job-card>
     </x-card>
 
     <x-card class="mb-[90px] mt-10">
