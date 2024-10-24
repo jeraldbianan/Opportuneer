@@ -16,7 +16,10 @@ class TextInput extends Component {
         public ?string $name = null,
         public ?string $placeholder = null,
         public ?string $formRef = null,
-        public ?string $type = 'text'
+        public ?string $type = 'text',
+        public ?string $cols = '30',
+        public ?string $row = '10'
+
     ) {
         //
     }
