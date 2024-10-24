@@ -33,16 +33,10 @@
                 value="{{ old('expected_salary') }}"
                 class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
                 form-ref="job-application-filters" />
-            @error('expected_salary')
-                <div class="text-red-600 text-xs">{{ $message }}</div>
-            @enderror
 
             <x-text-input type="file" name="cv"
                 class="h-12 mt-2 mb-2 {{ $errors->has('cv') ? '!border-red-600' : '!border-white-coffee' }}"
                 form-ref="job-application-filters" />
-            @error('cv')
-                <div class="text-red-600 text-xs">{{ $message }}</div>
-            @enderror
 
             <x-button type="submit" class="mt-10 w-20">Apply</x-button>
         </form>
