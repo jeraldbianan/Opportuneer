@@ -11,6 +11,8 @@
         <x-icons.user class="w-6 h-6" />
     @elseif ($icon === 'key')
         <x-icons.key class="w-6 h-6" />
+    @elseif ($icon === 'folder')
+        <x-icons.folder class="w-6 h-6" />
     @endif
 
     <input x-ref="input-{{ $name }}" type="{{ $type }}" placeholder="{{ $placeholder }}"
