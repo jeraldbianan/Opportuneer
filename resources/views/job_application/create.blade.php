@@ -29,7 +29,7 @@
             action="{{ route('job-listings.application.store', $job) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <x-text-input icon="money" placeholder="Expected Salary" name="expected_salary"
+            <x-text-input icon="money" type="number" placeholder="Expected Salary" name="expected_salary"
                 value="{{ old('expected_salary') }}"
                 class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
                 form-ref="job-application-filters" />
