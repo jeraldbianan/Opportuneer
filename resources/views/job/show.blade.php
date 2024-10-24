@@ -16,13 +16,19 @@
     <x-card>
         <x-job-card :$job>
 
-            @can('apply', $job)
+            @auth
+                @can('apply', $job)
+                    <a href="{{ route('job-listings.application.create', $job) }}">
+                        <x-button type="button" class="w-20">Apply</x-button>
+                    </a>
+                @else
+                    <div class="text-center text-base font-medium text-dark-blue">You already applied to this job</div>
+                @endcan
+            @else
                 <a href="{{ route('job-listings.application.create', $job) }}">
                     <x-button type="button" class="w-20">Apply</x-button>
                 </a>
-            @else
-                <div class="text-center text-base font-medium text-dark-blue">You already applied to this job</div>
-            @endcan
+            @endauth
         </x-job-card>
     </x-card>
 
