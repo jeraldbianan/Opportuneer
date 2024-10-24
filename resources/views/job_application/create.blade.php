@@ -26,14 +26,21 @@
         </h2>
 
         <form x-data="" x-ref="job-application-filters"
-            action="{{ route('job-listings.application.store', $job) }}" method="POST">
+            action="{{ route('job-listings.application.store', $job) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <x-text-input icon="money" placeholder="Email" name="expected_salary" value="{{ old('expected_salary') }}"
-                form-ref="login-filters"
-                class="h-12 mb-1 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
+            <x-text-input icon="money" placeholder="Expected Salary" name="expected_salary"
+                value="{{ old('expected_salary') }}"
+                class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
                 form-ref="job-application-filters" />
             @error('expected_salary')
+                <div class="text-red-600 text-xs">{{ $message }}</div>
+            @enderror
+
+            <x-text-input type="file" name="cv"
+                class="h-12 mt-2 mb-2 {{ $errors->has('cv') ? '!border-red-600' : '!border-white-coffee' }}"
+                form-ref="job-application-filters" />
+            @error('cv')
                 <div class="text-red-600 text-xs">{{ $message }}</div>
             @enderror
 
