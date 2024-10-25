@@ -32,7 +32,11 @@
             </button>
         @endif
 
-        @if ($formRef === 'home-filters' || $formRef === 'login-filters' || $formRef === 'job-application-filters')
+        @if (
+            $formRef === 'home-filters' ||
+                $formRef === 'login-filters' ||
+                $formRef === 'job-application-filters' ||
+                $formRef === 'create-employer-filters')
             <button @click.prevent="$refs['input-{{ $name }}'].value = ''" type="button"
                 class="absolute top-0 right-0 flex h-full items-center p-2" aria-label="Clear Input Button">
                 <x-icons.close

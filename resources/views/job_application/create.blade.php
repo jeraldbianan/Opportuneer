@@ -30,15 +30,15 @@
             @csrf
 
             <div>
-                <x-label for="expected_salary"></x-label>
+                <x-label for="expected_salary">Expected Salary</x-label>
                 <x-text-input icon="money" type="number" placeholder="Expected Salary" name="expected_salary"
                     value="{{ old('expected_salary') }}"
                     class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
                     form-ref="job-application-filters" />
             </div>
 
-            <div>
-                <x-label for="cv"></x-label>
+            <div class="mt-5">
+                <label for="cv" class="text-sm">Attach your CV / Resume</label>
                 <x-text-input type="file" name="cv"
                     class="h-12 mt-2 mb-2 {{ $errors->has('cv') ? '!border-red-600' : '!border-white-coffee' }}"
                     form-ref="job-application-filters" />
