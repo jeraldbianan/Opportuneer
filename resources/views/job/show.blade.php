@@ -13,6 +13,7 @@
         'Jobs' => route('job-listings.index'),
         $job->title => '#',
     ]" class="mb-4 mt-10" />
+
     <x-card>
         <x-job-card :$job>
 

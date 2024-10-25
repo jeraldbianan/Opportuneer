@@ -1,4 +1,4 @@
-<article class="flex justify-between gap-6">
+<article class="flex justify-between gap-6" aria-labelledby="{{ $job->title }}">
     <section class="flex flex-col">
         <header class="flex gap-3 w-full items-start">
             <img src="{{ $job->employer->logo }}" alt="employer logo"

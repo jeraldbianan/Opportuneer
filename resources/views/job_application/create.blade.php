@@ -20,9 +20,9 @@
         <x-job-card :$job />
     </x-card>
 
-    <x-card class="mb-[90px]">
+    <x-card class="mb-[90px]" aria-labelledby="Job-Application">
         <h2 class="mb-4 text-lg font-medium">
-            You Job Application
+            Your Job Application
         </h2>
 
         <form x-data="" x-ref="job-application-filters"

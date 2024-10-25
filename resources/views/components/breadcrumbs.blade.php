@@ -1,4 +1,4 @@
-<nav {{ $attributes }}>
+<nav {{ $attributes }} aria-label="Breadcrumb">
     <ul class="flex space-x-2 text-dark-blue items-center text-xs">
         <li class="border-b border-b-transparent hover:border-b-dark-blue">
             <a href="/">Home</a>
