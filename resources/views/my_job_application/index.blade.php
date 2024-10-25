@@ -13,7 +13,7 @@
         'My Job Applications' => '#',
     ]" class="mb-4 mt-10" />
 
-    <div class="flex flex-col gap-5 mb-[90px]">
+    <section class="flex flex-col gap-5 mb-[90px]">
         @forelse ($applications as $application)
             <x-card>
                 <x-job-card :job="$application->jobListing"></x-job-card>
@@ -59,14 +59,15 @@
                                 </button>
                             </div>
                         </x-modal>
-                        <a href="{{ route('job-listings.show', $application->jobListing) }}">
+                        <a href="{{ route('job-listings.show', $application->jobListing) }}"
+                            aria-label="Show details of the job application">
                             <x-button type="button">Show Details</x-button>
                         </a>
                     </div>
                 </div>
             </x-card>
         @empty
-            <div class="mt-10 flex flex-col gap-4 items-center">
+            <div class="mt-10 flex flex-col gap-4 items-center" aria-live="polite">
                 <div>No Job Application found..</div>
                 <a href="{{ route('job-listings.index') }}">
                     <x-button type="button">Browse Jobs</x-button>
@@ -74,6 +75,8 @@
             </div>
         @endforelse
 
-        {{ $applications->links('components.pagination') }}
-    </div>
+        <nav aria-label="Pagination">
+            {{ $applications->links('components.pagination') }}
+        </nav>
+    </section>
 @endsection

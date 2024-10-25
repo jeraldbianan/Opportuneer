@@ -20,23 +20,29 @@
         <x-job-card :$job />
     </x-card>
 
-    <x-card class="mb-[90px]">
+    <x-card class="mb-[90px]" aria-labelledby="Job-Application">
         <h2 class="mb-4 text-lg font-medium">
-            You Job Application
+            Your Job Application
         </h2>
 
         <form x-data="" x-ref="job-application-filters"
             action="{{ route('job-listings.application.store', $job) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <x-text-input icon="money" type="number" placeholder="Expected Salary" name="expected_salary"
-                value="{{ old('expected_salary') }}"
-                class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
-                form-ref="job-application-filters" />
+            <div>
+                <x-label for="expected_salary"></x-label>
+                <x-text-input icon="money" type="number" placeholder="Expected Salary" name="expected_salary"
+                    value="{{ old('expected_salary') }}"
+                    class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
+                    form-ref="job-application-filters" />
+            </div>
 
-            <x-text-input type="file" name="cv"
-                class="h-12 mt-2 mb-2 {{ $errors->has('cv') ? '!border-red-600' : '!border-white-coffee' }}"
-                form-ref="job-application-filters" />
+            <div>
+                <x-label for="cv"></x-label>
+                <x-text-input type="file" name="cv"
+                    class="h-12 mt-2 mb-2 {{ $errors->has('cv') ? '!border-red-600' : '!border-white-coffee' }}"
+                    form-ref="job-application-filters" />
+            </div>
 
             <x-button type="submit" class="mt-10 w-20">Apply</x-button>
         </form>

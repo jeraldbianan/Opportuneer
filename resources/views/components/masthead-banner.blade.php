@@ -1,4 +1,4 @@
-<header class="relative max-w-full w-full h-[300px]">
+<header class="relative max-w-full w-full h-[300px]" role="banner">
     <div class="absolute bg-black/50 h-full w-full z-10"></div>
     <img src="{{ $mastHeadPhoto }}" alt="Job Listings Background Image"
         class="absolute inset-0 h-full w-full object-cover">

@@ -6,54 +6,65 @@
                 Connecting Talent with Opportunity
             </p>
         </div>
-        <div class="flex gap-10 flex-wrap">
-            <div class="flex flex-col gap-1">
+
+        <nav class="flex gap-10 flex-wrap" aria-label="Footer Navigation">
+            <!-- Company Information -->
+            <section>
                 <h4 class="font-montserrat text-base font-semibold">Company Information</h4>
-                <ul class="text-xs flex flex-col gap-1">
-                    <li>About Us</li>
-                    <li>Careers</li>
-                    <li>Press & Media</li>
-                    <li>Blog</li>
+                <ul class="text-xs flex flex-col gap-2 mt-2">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press & Media</a></li>
+                    <li><a href="#">Blog</a></li>
                 </ul>
-            </div>
-            <div class="flex flex-col gap-1">
+            </section>
+
+            <!-- Legal Information -->
+            <section>
                 <h4 class="font-montserrat text-base font-semibold">Legal</h4>
-                <ul class="text-xs flex flex-col gap-1">
-                    <li>Terms of Service</li>
-                    <li>Privacy Policy</li>
-                    <li>Cookie Policy</li>
-                    <li>Security</li>
+                <ul class="text-xs flex flex-col gap-2 mt-2">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Security</a></li>
                 </ul>
-            </div>
-            <div class="flex flex-col gap-1">
+            </section>
+
+            <!-- Help & Support -->
+            <section>
                 <h4 class="font-montserrat text-base font-semibold">Help & Support</h4>
-                <ul class="text-xs flex flex-col gap-1">
-                    <li>FAQs</li>
-                    <li>Contact Us</li>
-                    <li>Support Center</li>
-                    <li>Feedback</li>
-                    <li>Accessibility</li>
+                <ul class="text-xs flex flex-col gap-2 mt-2">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Support Center</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Accessibility</a></li>
                 </ul>
-            </div>
-            <div class="flex flex-col gap-1">
+            </section>
+
+            <!-- Social Media -->
+            <section>
                 <h4 class="font-montserrat text-base font-semibold">Social Media</h4>
-                <ul class="text-xs flex flex-col gap-1">
-                    <li>Facebook</li>
-                    <li>Twitter</li>
-                    <li>LinkedIn</li>
-                    <li>Instagram</li>
+                <ul class="text-xs flex flex-col gap-2 mt-2">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
                 </ul>
-            </div>
-            <div class="flex flex-col gap-1">
+            </section>
+
+            <!-- Contact Information -->
+            <section>
                 <h4 class="font-montserrat text-base font-semibold">Contact Info</h4>
-                <ul class="text-xs flex flex-col gap-1">
-                    <li>Email: support@opportuneer.com</li>
-                    <li>Phone: +1 (123) 456-7890</li>
-                    <li>Office Address: 123 Main St, City, Country</li>
-                </ul>
-            </div>
-        </div>
+                <address class="text-xs not-italic flex flex-col gap-2 mt-2">
+                    <p>Email: <a href="#">support@opportuneer.com</a></p>
+                    <p>Phone: <a href="#">+1 (123) 456-7890</a></p>
+                    <p>Office Address: 123 Main St, City, Country</p>
+                </address>
+            </section>
+        </nav>
     </div>
+
     <p class="mt-[76px] font-open-sans text-xs text-black/40">
         © Copyright - Jerald Bianan
     </p>
