@@ -12,10 +12,10 @@
 
 <body>
     <div class="flex flex-col min-h-screen w-full items-center">
-        <header class="sticky top-0 z-50 bg-white w-full p-3 flex justify-center">
+        <header class="sticky top-0 z-50 bg-white w-full p-3 flex justify-center shadow-sm">
             <div class="container flex justify-between items-center">
-                <a href="{{ route('home') }}">
-                    <x-icons.logo></x-icons.logo>
+                <a href="{{ route('home') }}" aria-label="To Homepage">
+                    <x-icons.logo aria-label="Oppotuneer Logo"></x-icons.logo>
                 </a>
                 <x-navigation />
             </div>

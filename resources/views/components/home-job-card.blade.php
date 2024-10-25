@@ -3,7 +3,7 @@
         <header class="flex items-center gap-3">
             <img src="{{ $job->employer->logo }}" alt="{{ $job->employer->company_name }}" class="w-20 h-20 rounded-2xl">
             <div class="flex flex-col">
-                <p class="font-open-sans text-xs font-bold text-light-blue">
+                <p class="font-open-sans text-xs font-bold text-dark-blue">
                     {{ $job->location }}
                 </p>
                 <p class="font-open-sans text-base font-bold line-clamp-1">{{ $job->employer->company_name }}</p>

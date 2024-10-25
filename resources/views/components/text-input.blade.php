@@ -25,7 +25,8 @@
             <button
                 @click="$refs['input-{{ $name }}'].value = '';
                 $refs['{{ $formRef }}'].submit();"
-                type="button" class="absolute top-0 right-0 flex h-full items-center p-2">
+                type="button" class="absolute top-0 right-0 flex h-full items-center p-2"
+                aria-label="Clear Input Button">
                 <x-icons.close
                     class="w-6 h-6 text-light-blue hover:scale-105 hover:bg-white-coffee rounded-full p-1 active:text-white transition-all" />
             </button>
@@ -33,7 +34,7 @@
 
         @if ($formRef === 'home-filters' || $formRef === 'login-filters' || $formRef === 'job-application-filters')
             <button @click.prevent="$refs['input-{{ $name }}'].value = ''" type="button"
-                class="absolute top-0 right-0 flex h-full items-center p-2">
+                class="absolute top-0 right-0 flex h-full items-center p-2" aria-label="Clear Input Button">
                 <x-icons.close
                     class="w-6 h-6 text-light-blue hover:scale-105 hover:bg-white-coffee rounded-full p-1 active:text-white transition-all" />
             </button>
