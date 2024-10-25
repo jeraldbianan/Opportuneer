@@ -3,22 +3,23 @@
 
     @if ('textarea' !== $type)
         @if ($icon === 'search')
-            <x-icons.search class="w-6 h-6" />
+            <x-icons.search class="w-6 h-6" aria-label="Search" />
         @elseif($icon === 'location')
-            <x-icons.location class="w-6 h-6" />
+            <x-icons.location class="w-6 h-6" aria-label="Location" />
         @elseif ($icon === 'money')
-            <x-icons.money class="w-6 h-6" />
+            <x-icons.money class="w-6 h-6" aria-label="Salary" />
         @elseif ($icon === 'user')
-            <x-icons.user class="w-6 h-6" />
+            <x-icons.user class="w-6 h-6" aria-label="User" />
         @elseif ($icon === 'key')
-            <x-icons.key class="w-6 h-6" />
+            <x-icons.key class="w-6 h-6" aria-label="Password" />
         @elseif ($icon === 'folder')
-            <x-icons.folder class="w-6 h-6" />
+            <x-icons.folder class="w-6 h-6" aria-label="File" />
         @endif
 
         <input x-ref="input-{{ $name }}" type="{{ $type }}" placeholder="{{ $placeholder }}"
             name="{{ $name }}" id="{{ $name }}" value="{{ $value }}"
-            class="outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent" />
+            class="outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent"
+            aria-describedby="{{ $name }}-help" />
 
         @if ($formRef === 'filters')
             <button
@@ -44,5 +45,5 @@
 </div>
 
 @error($name)
-    <div class="text-red-600 text-xs">{{ $message }}</div>
+    <div id="{{ $name }}-help" class="text-red-600 text-xs">{{ $message }}</div>
 @enderror

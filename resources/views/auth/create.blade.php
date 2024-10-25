@@ -15,15 +15,21 @@
                 </div>
             @endif
 
-            <div class="flex flex-col">
-                <x-text-input icon="user" placeholder="Email" name="email" value="{{ old('email') }}"
-                    form-ref="login-filters"
-                    class="h-12 mb-1 {{ $errors->has('email') ? '!border-red-600' : '!border-white-coffee' }}" />
+            <section class="flex flex-col">
+                <div>
+                    <x-label for="email">E-mail</x-label>
+                    <x-text-input icon="user" placeholder="Email" name="email" value="{{ old('email') }}"
+                        form-ref="login-filters"
+                        class="h-12 mb-1 {{ $errors->has('email') ? '!border-red-600' : '!border-white-coffee' }}" />
+                </div>
 
-                <x-text-input icon="key" placeholder="Password" type="password" name="password" value=""
-                    form-ref="login-filters"
-                    class="h-12 mt-3 mb-1 {{ $errors->has('password') ? '!border-red-600' : '!border-white-coffee' }}" />
-            </div>
+                <div>
+                    <x-label for="password">Password</x-label>
+                    <x-text-input icon="key" placeholder="Password" type="password" name="password" value=""
+                        form-ref="login-filters"
+                        class="h-12 mt-3 mb-1 {{ $errors->has('password') ? '!border-red-600' : '!border-white-coffee' }}" />
+                </div>
+            </section>
 
             <div class="flex justify-between mt-3 mb-10">
                 <div class="flex gap-2 items-center">

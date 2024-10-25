@@ -11,27 +11,34 @@
 </head>
 
 <body>
-    <div class="flex flex-col min-h-screen">
-        <nav class="sticky top-0 z-50 bg-white flex justify-center">
-            <x-navigation />
-        </nav>
+    <div class="flex flex-col min-h-screen w-full items-center">
+        <header class="sticky top-0 z-50 bg-white w-full p-3 flex justify-center">
+            <div class="container flex justify-between items-center">
+                <a href="{{ route('home') }}">
+                    <x-icons.logo></x-icons.logo>
+                </a>
+                <x-navigation />
+            </div>
+        </header>
 
-        @yield('hero')
-        @yield('masthead')
-
-        <main class="container mx-auto flex-grow">
+        <main class="w-full">
             @if (session('success'))
-                <div role="alert"
+                <section role="alert"
                     class="my-8 rounded-md border-l-4 border-success bg-green-200 p-4 text-green-700 opacity-75">
                     <p class="font-semibold text-sm">Success!</p>
                     <p class="font-medium text-xs">{{ session('success') }}</p>
-                </div>
+                </section>
             @endif
 
-            @yield('content')
+            @yield('hero')
+            @yield('masthead')
+
+            <section class="container mx-auto flex-grow">
+                @yield('content')
+            </section>
         </main>
 
-        <footer class="flex justify-center border-t border-t-light-pink">
+        <footer class="w-full border-t border-t-light-pink py-4 container flex justify-center">
             <x-footer />
         </footer>
     </div>

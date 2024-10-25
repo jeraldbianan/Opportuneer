@@ -17,19 +17,31 @@
             <form x-ref="filters" action="{{ route('job-listings.index') }}" method="GET">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="flex col-span-1 gap-1">
-                        <x-text-input icon="search" placeholder="Search job title or keyword" name="keyword"
-                            value="{{ request('keyword') }}" form-ref="filters" />
+                        <div class="w-full">
+                            <x-label for="keyword">Keyword</x-label>
+                            <x-text-input icon="search" placeholder="Search job title or keyword" name="keyword"
+                                value="{{ request('keyword') }}" form-ref="filters" />
+                        </div class="w-full">
 
-                        <x-text-input icon="location" placeholder="Location" name="location"
-                            value="{{ request('location') }}" form-ref="filters" />
+                        <div class="w-full">
+                            <x-label for="location">Location</x-label>
+                            <x-text-input icon="location" placeholder="Location" name="location"
+                                value="{{ request('location') }}" form-ref="filters" />
+                        </div>
                     </div>
 
                     <div class="flex col-span-1 gap-1">
-                        <x-text-input icon="money" placeholder="Minimum Salary" name="min_salary"
-                            value="{{ request('min_salary') }}" form-ref="filters" />
+                        <div class="w-full">
+                            <x-label for="min_salary">Minimum Salary</x-label>
+                            <x-text-input icon="money" placeholder="Minimum Salary" name="min_salary"
+                                value="{{ request('min_salary') }}" form-ref="filters" />
+                        </div>
 
-                        <x-text-input icon="money" placeholder="Maximum Salary" name="max_salary"
-                            value="{{ request('max_salary') }}" form-ref="filters" />
+                        <div class="w-full">
+                            <x-label for="max_salary">Maximum Salary</x-label>
+                            <x-text-input icon="money" placeholder="Maximum Salary" name="max_salary"
+                                value="{{ request('max_salary') }}" form-ref="filters" />
+                        </div>
                     </div>
 
                     <div>
