@@ -1,10 +1,12 @@
 <div class="container py-10 bg-white">
     <div class="flex justify-between gap-10">
         <div>
-            <x-icons.logo></x-icons.logo>
-            <p class="mt-1 font-open-sans text-sm !leading-[130%] text-black">
-                Connecting Talent with Opportunity
-            </p>
+            <a href="{{ route('home') }}" aria-label="To Homepage">
+                <x-icons.logo aria-label="Opportuneer Logo"></x-icons.logo>
+                <p class="mt-1 font-open-sans text-sm !leading-[130%] text-black">
+                    Connecting Talent with Opportunity
+                </p>
+            </a>
         </div>
 
         <nav class="flex gap-10 flex-wrap" aria-label="Footer Navigation">
