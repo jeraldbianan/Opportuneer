@@ -10,38 +10,36 @@
 
 </head>
 
-<body>
-    <div class="flex flex-col min-h-screen w-full items-center">
-        <header class="sticky top-0 z-50 bg-white w-full p-3 flex justify-center">
-            <div class="container flex justify-between items-center">
-                <a href="{{ route('home') }}">
-                    <x-icons.logo></x-icons.logo>
-                </a>
-                <x-navigation />
-            </div>
-        </header>
+<body class="flex flex-col min-h-screen w-full items-center">
+    <header class="sticky top-0 z-50 bg-white w-full p-3 flex justify-center">
+        <div class="container flex justify-between items-center">
+            <a href="{{ route('home') }}">
+                <x-icons.logo></x-icons.logo>
+            </a>
+            <x-navigation />
+        </div>
+    </header>
 
-        <main class="w-full">
-            @if (session('success'))
-                <section role="alert"
-                    class="my-8 rounded-md border-l-4 border-success bg-green-200 p-4 text-green-700 opacity-75">
-                    <p class="font-semibold text-sm">Success!</p>
-                    <p class="font-medium text-xs">{{ session('success') }}</p>
-                </section>
-            @endif
-
-            @yield('hero')
-            @yield('masthead')
-
-            <section class="container mx-auto flex-grow">
-                @yield('content')
+    <main class="w-full">
+        @if (session('success'))
+            <section role="alert"
+                class="my-8 rounded-md border-l-4 border-success bg-green-200 p-4 text-green-700 opacity-75">
+                <p class="font-semibold text-sm">Success!</p>
+                <p class="font-medium text-xs">{{ session('success') }}</p>
             </section>
-        </main>
+        @endif
 
-        <footer class="w-full border-t border-t-light-pink py-4 container flex justify-center">
-            <x-footer />
-        </footer>
-    </div>
+        @yield('hero')
+        @yield('masthead')
+
+        <section class="container mx-auto flex-grow">
+            @yield('content')
+        </section>
+    </main>
+
+    <footer class="w-full border-t border-t-light-pink py-4 container flex justify-center">
+        <x-footer />
+    </footer>
 </body>
 
 </html>

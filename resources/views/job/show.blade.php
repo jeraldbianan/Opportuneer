@@ -33,9 +33,9 @@
     </x-card>
 
     <x-card class="mb-[90px] mt-10">
-        <h2 class="mb-4 text-lg font-medium font-montserrat">
+        <h4 class="mb-4 text-lg font-medium font-montserrat">
             More Jobs at <span class="font-bold">{{ $job->employer->company_name }}</span>
-        </h2>
+        </h4>
         <div class="text-sm">
             @foreach ($jobListings as $otherJob)
                 <div class="mb-4 flex justify-between items-center">
