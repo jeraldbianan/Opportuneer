@@ -2,8 +2,8 @@
 
 @section('masthead')
     <x-masthead-banner>
-        <h2 class="font-montserrat font-semibold text-5xl text-white">Post Your Job Opening</h2>
-        <p class="font-normal text-base text-white">Find the right talent to grow your team today.</p>
+        <h2 class="font-montserrat font-semibold text-5xl text-white">Your Job Listings</h2>
+        <p class="font-normal text-base text-white">Manage and review all active job posts in one place.</p>
     </x-masthead-banner>
 @endsection
 

@@ -46,7 +46,7 @@
             </section>
         </main>
 
-        <footer class="w-full border-t border-t-light-pink py-4 container flex justify-center">
+        <footer class="w-full border-t border-t-light-pink py-4 flex justify-center">
             <x-footer />
         </footer>
     </div>
