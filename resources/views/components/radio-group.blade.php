@@ -15,3 +15,7 @@
         </label>
     @endforeach
 </div>
+
+@error($name)
+    <div id="{{ $name }}-help" class="text-red-600 text-xs">{{ $message }}</div>
+@enderror

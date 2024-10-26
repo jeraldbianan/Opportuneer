@@ -1,7 +1,7 @@
 <article class="flex justify-between gap-6" aria-labelledby="{{ $job->title }}">
     <section class="flex flex-col">
         <header class="flex gap-3 w-full items-start">
-            <img src="{{ $job->employer->logo }}" alt="employer logo"
+            <img src="{{ asset($job->employer->logo) }}" alt="employer logo"
                 class="max-w-[52px] max-h-[52px] w-full h-full rounded-2xl object-cover">
             <div>
                 <h3 class="line-clamp-1 font-semibold text-xl">

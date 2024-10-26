@@ -25,14 +25,14 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <x-label for="title">Title</x-label>
-                        <x-text-input type="text" name="title" placeholder="Title"
+                        <x-text-input type="text" name="title" placeholder="Title" value="{{ old('title') }}"
                             class="h-12 w-full mt-2 mb-2 {{ $errors->has('title') ? '!border-red-600' : '!border-white-coffee' }}"
                             form-ref="job-post-filters" />
                     </div>
 
                     <div>
                         <x-label for="location">Location</x-label>
-                        <x-text-input type="text" name="location" placeholder="Location"
+                        <x-text-input type="text" name="location" placeholder="Location" value="{{ old('location') }}"
                             class="h-12 w-full mt-2 mb-2 {{ $errors->has('location') ? '!border-red-600' : '!border-white-coffee' }}"
                             form-ref="job-post-filters" />
                     </div>
@@ -46,7 +46,7 @@
 
                     <div>
                         <x-label for="salary">Salary</x-label>
-                        <x-text-input type="number" name="salary" placeholder="Salary"
+                        <x-text-input type="number" name="salary" placeholder="Salary" value="{{ old('salary') }}"
                             class="h-12 w-full mt-2 mb-2 {{ $errors->has('salary') ? '!border-red-600' : '!border-white-coffee' }}"
                             form-ref="job-post-filters" />
                     </div>
