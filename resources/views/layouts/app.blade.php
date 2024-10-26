@@ -34,6 +34,14 @@
                     </section>
                 @endif
 
+                @if (session('error'))
+                    <section role="alert"
+                        class="my-8 rounded-md border-l-4 border-danger bg-red-200 p-4 text-red-700 opacity-75">
+                        <p class="font-semibold text-sm">Error!</p>
+                        <p class="font-medium text-xs">{{ session('error') }}</p>
+                    </section>
+                @endif
+
                 @yield('content')
             </section>
         </main>

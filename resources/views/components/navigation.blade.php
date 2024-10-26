@@ -1,5 +1,5 @@
 <nav class="flex gap-10 items-center">
-    <ul class="flex gap-10 font-semibold text-lg">
+    <ul class="flex gap-10 font-semibold text-base">
         <li class="hover:text-dark-blue
                 @if (Route::currentRouteName() === 'home') text-dark-blue @endif">
             <a href="{{ route('home') }}">Home</a>
