@@ -51,7 +51,7 @@ class JobListingController extends Controller {
      * Display the specified resource.
      */
     public function show(JobListing $jobListing) {
-        $jobListings = $jobListing->employer->jobListings()->paginate(10);
+        $jobListings = $jobListing->employer->jobListings()->latest()->paginate(10);
 
         return view('job.show', [
             'job' => $jobListing,

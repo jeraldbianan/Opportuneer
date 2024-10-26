@@ -11,7 +11,17 @@ class MyJobListingController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        return view('my_job.index');
+        $jobListings = Auth::user()->employer
+            ->jobListings()
+            ->with([
+                'employer',
+                'jobListingApplications',
+                'jobListingApplications.user'
+            ])
+            ->latest()
+            ->paginate(5);
+
+        return view('my_job.index', ['jobs' => $jobListings]);
     }
 
     /**

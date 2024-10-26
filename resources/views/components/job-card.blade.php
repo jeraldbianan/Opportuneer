@@ -36,19 +36,25 @@
         </div>
 
         <footer class="flex gap-2 flex-wrap max-w-[690px] w-full mt-5">
-            <x-tag class="bg-dark-blue">
-                <a href="{{ route('job-listings.index', ['type' => $job->type]) }}">{{ $job->type }}</a>
-            </x-tag>
-            <x-tag class="bg-dark-blue">
-                <a
-                    href="{{ route('job-listings.index', ['experience' => $job->experience]) }}">{{ $job->experience }}</a>
-            </x-tag>
-            @foreach (explode(',', $job->tags) as $tag)
-                <x-tag class="bg-light-blue">
-                    <a href="{{ route('job-listings.index', ['tag' => $tag]) }}">
-                        {{ $tag }}
-                    </a>
+            <a href="{{ route('job-listings.index', ['type' => $job->type]) }}">
+                <x-tag class="bg-dark-blue">
+                    {{ $job->type }}
                 </x-tag>
+            </a>
+
+            <a href="{{ route('job-listings.index', ['experience' => $job->experience]) }}">
+                <x-tag class="bg-dark-blue">
+                    {{ $job->experience }}
+                </x-tag>
+            </a>
+
+
+            @foreach (explode(',', $job->tags) as $tag)
+                <a href="{{ route('job-listings.index', ['tag' => $tag]) }}">
+                    <x-tag class="bg-light-blue">
+                        {{ $tag }}
+                    </x-tag>
+                </a>
             @endforeach
         </footer>
     </section>
