@@ -1,11 +1,11 @@
 <article class="flex justify-between gap-6" aria-labelledby="{{ $job->title }}">
     <section class="flex flex-col">
         <header class="flex gap-3 w-full items-start">
-            <img src="{{ $job->employer->logo }}" alt="employer logo"
+            <img src="{{ asset($job->employer->logo) }}" alt="employer logo"
                 class="max-w-[52px] max-h-[52px] w-full h-full rounded-2xl object-cover">
             <div>
                 <h3 class="line-clamp-1 font-semibold text-xl">
-                    {{ Str::ucfirst($job->title) }}
+                    {{ ucwords($job->title) }}
                 </h3>
                 <div class="flex gap-2 items-center">
                     <p class="text-light-blue font-semibold text-base">
@@ -36,19 +36,25 @@
         </div>
 
         <footer class="flex gap-2 flex-wrap max-w-[690px] w-full mt-5">
-            <x-tag class="bg-dark-blue">
-                <a href="{{ route('job-listings.index', ['type' => $job->type]) }}">{{ $job->type }}</a>
-            </x-tag>
-            <x-tag class="bg-dark-blue">
-                <a
-                    href="{{ route('job-listings.index', ['experience' => $job->experience]) }}">{{ $job->experience }}</a>
-            </x-tag>
-            @foreach (explode(',', $job->tags) as $tag)
-                <x-tag class="bg-light-blue">
-                    <a href="{{ route('job-listings.index', ['tag' => $tag]) }}">
-                        {{ $tag }}
-                    </a>
+            <a href="{{ route('job-listings.index', ['type' => $job->type]) }}">
+                <x-tag class="bg-dark-blue">
+                    {{ $job->type }}
                 </x-tag>
+            </a>
+
+            <a href="{{ route('job-listings.index', ['experience' => $job->experience]) }}">
+                <x-tag class="bg-dark-blue">
+                    {{ $job->experience }}
+                </x-tag>
+            </a>
+
+
+            @foreach (explode(',', $job->tags) as $tag)
+                <a href="{{ route('job-listings.index', ['tag' => $tag]) }}">
+                    <x-tag class="bg-light-blue">
+                        {{ $tag }}
+                    </x-tag>
+                </a>
             @endforeach
         </footer>
     </section>

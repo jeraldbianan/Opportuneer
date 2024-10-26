@@ -22,23 +22,31 @@
         </header>
 
         <main class="w-full flex-grow">
-            @if (session('success'))
-                <section role="alert"
-                    class="my-8 rounded-md border-l-4 border-success bg-green-200 p-4 text-green-700 opacity-75">
-                    <p class="font-semibold text-sm">Success!</p>
-                    <p class="font-medium text-xs">{{ session('success') }}</p>
-                </section>
-            @endif
-
             @yield('hero')
             @yield('masthead')
 
             <section class="container mx-auto">
+                @if (session('success'))
+                    <section role="alert"
+                        class="my-8 rounded-md border-l-4 border-success bg-green-200 p-4 text-green-700 opacity-75">
+                        <p class="font-semibold text-sm">Success!</p>
+                        <p class="font-medium text-xs">{{ session('success') }}</p>
+                    </section>
+                @endif
+
+                @if (session('error'))
+                    <section role="alert"
+                        class="my-8 rounded-md border-l-4 border-danger bg-red-200 p-4 text-red-700 opacity-75">
+                        <p class="font-semibold text-sm">Error!</p>
+                        <p class="font-medium text-xs">{{ session('error') }}</p>
+                    </section>
+                @endif
+
                 @yield('content')
             </section>
         </main>
 
-        <footer class="w-full border-t border-t-light-pink py-4 container flex justify-center">
+        <footer class="w-full border-t border-t-light-pink py-4 flex justify-center">
             <x-footer />
         </footer>
     </div>

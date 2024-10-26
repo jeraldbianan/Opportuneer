@@ -1,5 +1,5 @@
 <div
-    {{ $attributes->class(['relative group flex items-center gap-2 max-w-[600px] w-full border border-white-coffee px-3 py-2 rounded focus-within:border-dark-blue']) }}>
+    {{ $attributes->class(['relative group flex items-center gap-2 max-w-full w-full border border-white-coffee px-3 py-2 rounded focus-within:!border-dark-blue']) }}>
 
     @if ('textarea' !== $type)
         @if ($icon === 'search')
@@ -32,7 +32,12 @@
             </button>
         @endif
 
-        @if ($formRef === 'home-filters' || $formRef === 'login-filters' || $formRef === 'job-application-filters')
+        @if (
+            $formRef === 'home-filters' ||
+                $formRef === 'login-filters' ||
+                $formRef === 'job-application-filters' ||
+                $formRef === 'create-employer-filters' ||
+                $formRef === 'job-post-filters')
             <button @click.prevent="$refs['input-{{ $name }}'].value = ''" type="button"
                 class="absolute top-0 right-0 flex h-full items-center p-2" aria-label="Clear Input Button">
                 <x-icons.close
@@ -40,7 +45,8 @@
             </button>
         @endif
     @else
-        <textarea id="{{ $name }}" name="{{ $name }}" cols="{{ $cols }}" rows="{{ $row }}"
+        <textarea id="{{ $name }}" name="{{ $name }}" placeholder="{{ $placeholder }}"
+            cols="{{ $cols }}" rows="{{ $row }}"
             class="outline-none border-none text-xs w-full p-0 pr-8 focus:ring-0 bg-transparent">{{ old($name, $value) }}</textarea>
     @endif
 </div>
