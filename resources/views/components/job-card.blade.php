@@ -5,7 +5,7 @@
                 class="max-w-[52px] max-h-[52px] w-full h-full rounded-2xl object-cover">
             <div>
                 <h3 class="line-clamp-1 font-semibold text-xl">
-                    {{ Str::ucfirst($job->title) }}
+                    {{ ucwords($job->title) }}
                 </h3>
                 <div class="flex gap-2 items-center">
                     <p class="text-light-blue font-semibold text-base">

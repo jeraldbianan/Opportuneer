@@ -13,11 +13,7 @@ class MyJobListingController extends Controller {
     public function index() {
         $jobListings = Auth::user()->employer
             ->jobListings()
-            ->with([
-                'employer',
-                'jobListingApplications',
-                'jobListingApplications.user'
-            ])
+            ->with('jobListingApplications')
             ->latest()
             ->paginate(5);
 
@@ -54,8 +50,9 @@ class MyJobListingController extends Controller {
     /**
      * Display the specified resource.
      */
-    public function show(string $id) {
-        //
+    public function show(JobListing $myJobListing) {
+        $applications = $myJobListing->jobListingApplications()->paginate(5);
+        return view('my_job.show', ['job' => $myJobListing, 'applications' => $applications]);
     }
 
     /**
