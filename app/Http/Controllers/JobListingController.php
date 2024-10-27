@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreJobListingRequest;
-use App\Http\Requests\UpdateJobListingRequest;
 use App\Models\JobListing;
+use Illuminate\Support\Facades\Gate;
 
 class JobListingController extends Controller {
     /**
      * Display a listing of the resource.
      */
     public function index() {
+        Gate::authorize('viewAny', JobListing::class);
+
         $filters = request()->only(
             'keyword',
             'location',
@@ -34,49 +35,16 @@ class JobListingController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create() {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreJobListingRequest $request) {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(JobListing $jobListing) {
+        Gate::authorize('view', $jobListing);
+
         $jobListings = $jobListing->employer->jobListings()->latest()->paginate(10);
 
         return view('job.show', [
             'job' => $jobListing,
             'jobListings' => $jobListings
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(JobListing $jobListing) {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateJobListingRequest $request, JobListing $jobListing) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(JobListing $jobListing) {
-        //
     }
 }

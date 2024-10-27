@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JobListing;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class JobListingApplicationController extends Controller {
     use AuthorizesRequests;
@@ -13,7 +14,7 @@ class JobListingApplicationController extends Controller {
      * Show the form for creating a new resource.
      */
     public function create(JobListing $jobListing) {
-        $this->authorize('apply', $jobListing);
+        Gate::authorize('apply', $jobListing);
 
         return view('job_application.create', ['job' => $jobListing]);
     }
@@ -22,7 +23,7 @@ class JobListingApplicationController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(JobListing $jobListing, Request $request) {
-        $this->authorize('apply', $jobListing);
+        Gate::authorize('apply', $jobListing);
 
         $validatedData = $request->validate([
             'expected_salary' => 'required|min:1|max:1000000',

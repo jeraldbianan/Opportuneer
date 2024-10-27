@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class EmployerController extends Controller {
     /**
      * Show the form for creating a new resource.
      */
     public function create() {
-        $this->authorize('create', Employer::class);
+        Gate::authorize('create', Employer::class);
+
         return view('employer.create');
     }
 
@@ -19,6 +21,8 @@ class EmployerController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(Request $request) {
+        Gate::authorize('create', Employer::class);
+
         $validatedData = $request->validate([
             'company_name' => 'required|min:3|unique:employers,company_name',
             'logo' => 'required|mimes:png,jpg,jpeg|max:2048',
