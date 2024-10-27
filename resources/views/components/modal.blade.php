@@ -1,6 +1,6 @@
 <div x-data="{ showModal: false }" @keydown.escape.window="showModal = false">
     <x-button @click="showModal = true" type="button" class="bg-red-500 hover:bg-red-700">
-        Cancel Application
+        Delete
     </x-button>
 
     <div x-show="showModal" tabindex="-1"
@@ -15,7 +15,7 @@
             <div class="bg-white rounded-lg shadow dark:bg-gray-700">
                 <div class="p-5 text-center">
                     <h3 id="modalTitle" class="mb-5 text-sm font-normal">{{ $title }}</h3>
-                    <p id="modalDescription" class="sr-only">This action will cancel your application.</p>
+                    <p id="modalDescription" class="sr-only">This action will delete the job listing.</p>
                     {{ $slot }}
                 </div>
             </div>
