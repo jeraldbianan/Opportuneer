@@ -23,7 +23,7 @@
             <x-card class="w-full">
                 <x-job-card :$job>
                     <div>
-                        <a href="">
+                        <a href="{{ route('my-job-listings.edit', $job) }}">
                             <x-button type="button">Edit</x-button>
                         </a>
                         <a href="{{ route('my-job-listings.show', $job) }}">

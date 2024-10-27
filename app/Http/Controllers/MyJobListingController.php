@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobListingRequest;
 use App\Models\JobListing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,19 +31,8 @@ class MyJobListingController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'description' => 'required|string',
-            'salary' => 'required|numeric|min:5000',
-            'experience' => 'required|in:' . implode(',', JobListing::$experience),
-            'category' => 'required|in:' . implode(',', JobListing::$category),
-            'type' => 'required|in:' . implode(',', JobListing::$type),
-            'tags' => 'required|string',
-        ]);
-
-        Auth::user()->employer->jobListings()->create($validatedData);
+    public function store(JobListingRequest $request) {
+        Auth::user()->employer->jobListings()->create($request->validated());
 
         return redirect()->route('my-job-listings.index')->with('success', 'Job created successfully');
     }
@@ -58,15 +48,17 @@ class MyJobListingController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id) {
-        //
+    public function edit(JobListing $myJobListing) {
+        return view('my_job.edit', ['job' => $myJobListing]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id) {
-        //
+    public function update(JobListingRequest $request, JobListing $myJobListing) {
+        $myJobListing->update($request->validated());
+
+        return redirect()->route('my-job-listings.index')->with('success', 'Job Updated Successfully');
     }
 
     /**
