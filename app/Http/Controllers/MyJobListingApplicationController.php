@@ -17,7 +17,8 @@ class MyJobListingApplicationController extends Controller {
             'applications' => Auth::user()->jobListingApplications()
                 ->with([
                     'jobListing' => fn($query) => $query->withCount('jobListingApplications')
-                        ->withAvg('jobListingApplications', 'expected_salary'),
+                        ->withAvg('jobListingApplications', 'expected_salary')
+                        ->withTrashed(),
                     'jobListing.employer'
                 ])
                 ->latest()->paginate(5),

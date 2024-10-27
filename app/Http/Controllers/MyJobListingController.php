@@ -18,6 +18,7 @@ class MyJobListingController extends Controller {
         $jobListings = Auth::user()->employer
             ->jobListings()
             ->with('jobListingApplications')
+            ->withTrashed()
             ->latest()
             ->paginate(5);
 

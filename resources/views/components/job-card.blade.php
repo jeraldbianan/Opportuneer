@@ -4,9 +4,14 @@
             <img src="{{ asset($job->employer->logo) }}" alt="employer logo"
                 class="max-w-[52px] max-h-[52px] w-full h-full rounded-2xl object-cover">
             <div>
-                <h3 class="line-clamp-1 font-semibold text-xl">
-                    {{ ucwords($job->title) }}
-                </h3>
+                <div class="flex items-center gap-2">
+                    <h3 class="line-clamp-1 font-semibold text-xl">
+                        {{ ucwords($job->title) }}
+                    </h3>
+                    @if ($job->deleted_at)
+                        <div class="text-sm font-semibold text-red-700"> -<span class="ml-2">Deleted</span></div>
+                    @endif
+                </div>
                 <div class="flex gap-2 items-center">
                     <p class="text-light-blue font-semibold text-base">
                         {{ $job->employer->company_name }}</p>
