@@ -77,10 +77,10 @@ class MyJobListingController extends Controller {
      * Remove the specified resource from storage.
      */
     public function destroy(JobListing $myJobListing) {
-        Gate::authorize('delete', $myJobListing);
+        Gate::authorize('delete', $myJobListing, JobListing::class);
         $myJobListing->delete();
 
-        return redirect()->route('my-jobs.index')
+        return redirect()->route('my-job-listings.index')
             ->with('success', 'Job deleted.');
     }
 }
