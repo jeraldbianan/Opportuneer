@@ -14,7 +14,7 @@ class JobListingApplicationController extends Controller {
      * Show the form for creating a new resource.
      */
     public function create(JobListing $jobListing) {
-        Gate::authorize('apply', $jobListing);
+        Gate::authorize('apply', $jobListing, JobListing::class);
 
         return view('job_application.create', ['job' => $jobListing]);
     }
@@ -23,7 +23,7 @@ class JobListingApplicationController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(JobListing $jobListing, Request $request) {
-        Gate::authorize('apply', $jobListing);
+        Gate::authorize('apply', $jobListing, JobListing::class);
 
         $validatedData = $request->validate([
             'expected_salary' => 'required|min:1|max:1000000',

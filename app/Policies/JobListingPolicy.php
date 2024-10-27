@@ -72,7 +72,11 @@ class JobListingPolicy {
         return $jobListing->employer->user_id === $user->id;
     }
 
-    public function apply(User $user, JobListing $jobListing): bool {
+    public function apply(User $user, JobListing $jobListing): bool | Response {
+        if ($user->employer->id === $jobListing->employer_id) {
+            return Response::deny('You cannot apply to a Job Listing you owned.');
+        }
+
         return !$jobListing->hasUserApplied($user);
     }
 }

@@ -38,7 +38,7 @@ class JobListingController extends Controller {
      * Display the specified resource.
      */
     public function show(JobListing $jobListing) {
-        Gate::authorize('view', $jobListing);
+        Gate::authorize('view', $jobListing, JobListing::class);
 
         $jobListings = $jobListing->employer->jobListings()->latest()->paginate(10);
 

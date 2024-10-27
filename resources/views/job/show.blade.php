@@ -23,7 +23,11 @@
                         <x-button type="button" class="w-20">Apply</x-button>
                     </a>
                 @else
-                    <div class="text-center text-base font-medium text-dark-blue">You already applied to this job</div>
+                    @if (Auth::user()->employer->id === $job->employer_id)
+                        <div class="text-center text-base font-medium text-dark-blue">Owned</div>
+                    @else
+                        <div class="text-center text-base font-medium text-dark-blue">You already applied to this job</div>
+                    @endif
                 @endcan
             @else
                 <a href="{{ route('job-listings.application.create', $job) }}">
