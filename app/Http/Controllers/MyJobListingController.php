@@ -17,7 +17,7 @@ class MyJobListingController extends Controller {
 
         $jobListings = Auth::user()->employer
             ->jobListings()
-            ->with('jobListingApplications')
+            ->with(['jobListingApplications', 'employer'])
             ->withTrashed()
             ->latest()
             ->paginate(5);
@@ -51,7 +51,7 @@ class MyJobListingController extends Controller {
     public function show(JobListing $myJobListing) {
         Gate::authorize('viewEmployer', $myJobListing, JobListing::class);
 
-        $applications = $myJobListing->jobListingApplications()->paginate(5);
+        $applications = $myJobListing->jobListingApplications()->with('user')->paginate(5);
         return view('my_job.show', ['job' => $myJobListing, 'applications' => $applications]);
     }
 

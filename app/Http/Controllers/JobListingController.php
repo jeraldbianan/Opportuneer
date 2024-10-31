@@ -29,7 +29,7 @@ class JobListingController extends Controller {
             return redirect()->route('job-listings.index', array_merge($filters, ['page' => 1]));
         }
 
-        $jobs = JobListing::filter($filters)->latest()->paginate(10)->withQueryString();
+        $jobs = JobListing::with('employer')->filter($filters)->latest()->paginate(10)->withQueryString();
 
         return view('job.index', ['jobs' => $jobs]);
     }

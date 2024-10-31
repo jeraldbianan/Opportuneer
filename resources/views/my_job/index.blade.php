@@ -65,6 +65,6 @@
     </div>
 
     <div class="mt-10 mb-[90px] w-full">
-        {{ $jobs->links() }}
+        {{ $jobs->links('components.pagination') }}
     </div>
 @endsection

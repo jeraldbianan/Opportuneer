@@ -45,8 +45,8 @@
                 <p class="text-xs text-dark-blue mt-10">No Applications Yet..</p>
             @endforelse
 
-            <div class="mt-10 mb-[90px] w-full">
-                {{ $applications->links() }}
+            <div class="mt-10 w-full">
+                {{ $applications->links('components.pagination') }}
             </div>
         </div>
     </x-card>

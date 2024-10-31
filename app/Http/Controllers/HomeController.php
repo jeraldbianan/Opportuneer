@@ -10,7 +10,7 @@ class HomeController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        $jobs = JobListing::latest()->get();
+        $jobs = JobListing::with('employer')->latest()->get();
 
         return view('home', ['jobs' => $jobs]);
     }
