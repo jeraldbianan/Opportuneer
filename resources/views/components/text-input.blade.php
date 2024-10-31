@@ -3,17 +3,19 @@
 
     @if ('textarea' !== $type)
         @if ($icon === 'search')
-            <x-icons.search class="w-6 h-6" aria-label="Search" />
+            <x-icons.search class="w-6 h-6" aria-label="Search icon" />
         @elseif($icon === 'location')
-            <x-icons.location class="w-6 h-6" aria-label="Location" />
+            <x-icons.location class="w-6 h-6" aria-label="Location icon" />
         @elseif ($icon === 'money')
-            <x-icons.money class="w-6 h-6" aria-label="Salary" />
+            <x-icons.money class="w-6 h-6" aria-label="Salary icon" />
         @elseif ($icon === 'user')
-            <x-icons.user class="w-6 h-6" aria-label="User" />
+            <x-icons.user class="w-6 h-6" aria-label="User icon" />
         @elseif ($icon === 'key')
-            <x-icons.key class="w-6 h-6" aria-label="Password" />
+            <x-icons.key class="w-6 h-6" aria-label="Password icon" />
         @elseif ($icon === 'folder')
-            <x-icons.folder class="w-6 h-6" aria-label="File" />
+            <x-icons.folder class="w-6 h-6" aria-label="File icon" />
+        @elseif ($icon === 'mail')
+            <x-icons.mail class="w-6 h-6" aria-label="mail icon" />
         @endif
 
         <input x-ref="input-{{ $name }}" type="{{ $type }}" placeholder="{{ $placeholder }}"
@@ -32,12 +34,7 @@
             </button>
         @endif
 
-        @if (
-            $formRef === 'home-filters' ||
-                $formRef === 'login-filters' ||
-                $formRef === 'job-application-filters' ||
-                $formRef === 'create-employer-filters' ||
-                $formRef === 'job-post-filters')
+        @if ($formRef === 'common-filters' || $formRef === 'job-post-filters')
             <button @click.prevent="$refs['input-{{ $name }}'].value = ''" type="button"
                 class="absolute top-0 right-0 flex h-full items-center p-2" aria-label="Clear Input Button">
                 <x-icons.close
