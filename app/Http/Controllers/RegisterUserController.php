@@ -25,13 +25,18 @@ class RegisterUserController extends Controller {
             'email' => 'required|email|unique:users,email',
             'password' => [
                 'required',
-                'string',
                 'min:8',
                 'regex:/[A-Z]/',
                 'regex:/[0-9]/',
                 'regex:/[@$!%*?&]/',
+                'confirmed'
             ],
-            'password_confirm' => 'required|same:password'
+            'password_confirm' => 'required'
+        ], [
+            'password.required' => 'The password field is required.',
+            'password.min' => 'The password must be at least 8 characters.',
+            'password.regex' => 'The password must include at least one uppercase letter, one number, and one special character.',
+            'password.confirmed' => 'The password and confirm password does not match.',
         ]);
 
         $user = User::create([
