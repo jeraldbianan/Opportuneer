@@ -13,7 +13,7 @@
     ]" class="mb-4 mt-10" />
 
     <x-card>
-        <form x-data="" x-ref="create-employer-filters" action="{{ route('employer.store') }}" method="POST"
+        <form x-data="" x-ref="common-filters" action="{{ route('employer.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
 
@@ -22,14 +22,14 @@
                 <x-text-input icon="building" type="text" placeholder="Company Name" name="company_name"
                     value="{{ old('company_name') }}"
                     class="h-12 mb-2 {{ $errors->has('company_name') ? '!border-red-600' : '!border-white-coffee' }}"
-                    form-ref="create-employer-filters" />
+                    form-ref="common-filters" />
             </div>
 
             <div class="mt-5">
                 <label for="logo" class="text-sm">Company Logo</label>
                 <x-text-input type="file" name="logo"
                     class="h-12 mt-2 mb-2 {{ $errors->has('logo') ? '!border-red-600' : '!border-white-coffee' }}"
-                    form-ref="create-employer-filters" />
+                    form-ref="common-filters" />
             </div>
 
             <x-button type="submit" class="mt-10">Create</x-button>

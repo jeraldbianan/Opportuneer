@@ -6,7 +6,7 @@
             Sign in to your account
         </h1>
 
-        <form x-data="" x-ref="login-filters" action="{{ route('auth.store') }}" method="POST" class="mt-10">
+        <form x-data="" x-ref="common-filters" action="{{ route('auth.store') }}" method="POST" class="mt-10">
             @csrf
 
             @if (session('error'))
@@ -18,15 +18,15 @@
             <section class="flex flex-col">
                 <div>
                     <x-label for="email">E-mail</x-label>
-                    <x-text-input icon="user" placeholder="Email" name="email" value="{{ old('email') }}"
-                        form-ref="login-filters"
+                    <x-text-input icon="mail" placeholder="Email" name="email" value="{{ old('email') }}"
+                        form-ref="common-filters"
                         class="h-12 mb-1 {{ $errors->has('email') ? '!border-red-600' : '!border-white-coffee' }}" />
                 </div>
 
                 <div>
                     <x-label for="password">Password</x-label>
                     <x-text-input icon="key" placeholder="Password" type="password" name="password" value=""
-                        form-ref="login-filters"
+                        form-ref="common-filters"
                         class="h-12 mt-3 mb-1 {{ $errors->has('password') ? '!border-red-600' : '!border-white-coffee' }}" />
                 </div>
             </section>
@@ -45,12 +45,12 @@
                 <x-button type="submit" class="text-white py-3">Login</x-button>
                 <div class="flex justify-center text-sm gap-2">
                     <p>Don't have an account?</p>
-                    <a href="" class="text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">
+                    <a href="{{ route('register.create') }}"
+                        class="text-dark-blue border-b border-b-transparent hover:border-b-dark-blue">
                         Register
                     </a>
                 </div>
             </div>
-
         </form>
     </x-card>
 @endsection

@@ -25,8 +25,8 @@
             Your Job Application
         </h2>
 
-        <form x-data="" x-ref="job-application-filters"
-            action="{{ route('job-listings.application.store', $job) }}" method="POST" enctype="multipart/form-data">
+        <form x-data="" x-ref="common-filters" action="{{ route('job-listings.application.store', $job) }}"
+            method="POST" enctype="multipart/form-data">
             @csrf
 
             <div>
@@ -34,14 +34,14 @@
                 <x-text-input icon="money" type="number" placeholder="Expected Salary" name="expected_salary"
                     value="{{ old('expected_salary') }}"
                     class="h-12 mb-2 {{ $errors->has('expected_salary') ? '!border-red-600' : '!border-white-coffee' }}"
-                    form-ref="job-application-filters" />
+                    form-ref="common-filters" />
             </div>
 
             <div class="mt-5">
                 <label for="cv" class="text-sm">Attach your CV / Resume</label>
                 <x-text-input type="file" name="cv"
                     class="h-12 mt-2 mb-2 {{ $errors->has('cv') ? '!border-red-600' : '!border-white-coffee' }}"
-                    form-ref="job-application-filters" />
+                    form-ref="common-filters" />
             </div>
 
             <x-button type="submit" class="mt-10 w-20">Apply</x-button>

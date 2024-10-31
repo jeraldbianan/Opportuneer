@@ -7,6 +7,7 @@ use App\Http\Controllers\JobListingApplicationController;
 use App\Http\Controllers\JobListingController;
 use App\Http\Controllers\MyJobListingApplicationController;
 use App\Http\Controllers\MyJobListingController;
+use App\Http\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -16,6 +17,8 @@ Route::resource('job-listings', JobListingController::class)->only(['index', 'sh
 Route::middleware('guest')->group(function () {
     Route::get('login', fn() => to_route('auth.create'))->name('login');
     Route::resource('auth', AuthController::class)->only(['create', 'store']);
+
+    Route::resource('register', RegisterUserController::class)->only(['create', 'store']);
 });
 
 Route::delete('auth', [AuthController::class, 'destroy'])->name('auth.destroy');
