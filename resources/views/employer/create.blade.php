@@ -10,9 +10,9 @@
 @section('content')
     <x-breadcrumbs :links="[
         'Create Employer Account' => '#',
-    ]" class="mb-4 mt-10" />
+    ]" class="my-10" />
 
-    <x-card>
+    <x-card class="pb-10 w-[500px] mx-auto mb-[90px]">
         <form x-data="" x-ref="common-filters" action="{{ route('employer.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
@@ -26,13 +26,13 @@
             </div>
 
             <div class="mt-5">
-                <label for="logo" class="text-sm">Company Logo</label>
+                <label for="logo" class="text-xs">Company Logo</label>
                 <x-text-input type="file" name="logo"
-                    class="h-12 mt-2 mb-2 {{ $errors->has('logo') ? '!border-red-600' : '!border-white-coffee' }}"
+                    class="h-12 mt-2 {{ $errors->has('logo') ? '!border-red-600' : '!border-white-coffee' }}"
                     form-ref="common-filters" />
             </div>
 
-            <x-button type="submit" class="mt-10">Create</x-button>
+            <x-button type="submit" class="mt-10 w-full h-10">Create</x-button>
         </form>
     </x-card>
 @endsection
