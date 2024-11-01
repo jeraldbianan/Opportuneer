@@ -7,6 +7,7 @@ use App\Http\Controllers\JobListingApplicationController;
 use App\Http\Controllers\JobListingController;
 use App\Http\Controllers\MyJobListingApplicationController;
 use App\Http\Controllers\MyJobListingController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,12 @@ Route::get('logout', fn() => to_route('auth.destroy'))->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::resource('job-listings.application', JobListingApplicationController::class)->only(['create', 'store']);
+
     Route::resource('my-job-listings-application', MyJobListingApplicationController::class)->only(['index', 'destroy']);
+
     Route::resource('employer', EmployerController::class)->only(['create', 'store']);
+
     Route::middleware('employer')->resource('my-job-listings', MyJobListingController::class);
+
+    Route::resource('profile', ProfileController::class)->only(['edit', 'update']);
 });

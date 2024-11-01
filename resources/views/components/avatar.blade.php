@@ -5,7 +5,7 @@
             <div>{{ auth()->user()->name }}</div>
         </div>
         <img id="avatarButton" type="button" class="w-10 h-10 rounded-full cursor-pointer"
-            src="https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png"
+            src="{{ auth()->user()->avatar ? asset(auth()->user()->avatar) : 'https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/45.png' }}"
             alt="User menu">
     </div>
 
@@ -35,6 +35,13 @@
                     </a>
                 </li>
             @endif
+
+            <li>
+                <a href="{{ route('profile.edit', auth()->user()) }}" role="menuitem"
+                    class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    Profile Settings
+                </a>
+            </li>
 
 
         </ul>
