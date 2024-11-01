@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller {
@@ -11,6 +12,7 @@ class ProfileController extends Controller {
      * Show the form for editing the specified resource.
      */
     public function edit(User $profile) {
+        Gate::authorize('view', $profile);
         return view('profile.edit', ['user' => $profile]);
     }
 
@@ -18,6 +20,8 @@ class ProfileController extends Controller {
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $profile) {
+        Gate::authorize('update', $profile);
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $profile->id,
