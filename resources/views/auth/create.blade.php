@@ -9,12 +9,6 @@
         <form x-data="" x-ref="common-filters" action="{{ route('auth.store') }}" method="POST" class="mt-10">
             @csrf
 
-            @if (session('error'))
-                <div role="alert" class="text-xs mt-8 mb-2 text-red-600 opacity-75">
-                    {{ session('error') }}
-                </div>
-            @endif
-
             <section class="flex flex-col">
                 <div>
                     <x-label for="email">E-mail</x-label>

@@ -38,6 +38,9 @@ class MastHeadComposer {
             case 'my-job-listings.edit':
                 $mastHeadPhoto = asset('images/employer-add-jobs-bg.jpg');
                 break;
+            case 'profile.edit':
+                $mastHeadPhoto = asset('images/employer-bg.jpg');
+                break;
         }
 
         $view->with('mastHeadPhoto', $mastHeadPhoto);
